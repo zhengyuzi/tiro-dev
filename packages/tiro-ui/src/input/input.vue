@@ -3,12 +3,11 @@
     :class="[
       'ti-input',
       disabled ? 'is-disabled' : null,
-      isFocus ? 'is-focus' : null
+      isFocus ? 'is-focus' : null,
+      `is-${size}`
     ]"
   >
-    <div
-      :class="['ti-input__wrapper', `is-${size}`, `is-style-type-${styleType}`]"
-    >
+    <div :class="['ti-input__wrapper', `is-style-type-${styleType}`]">
       <div class="ti-input__prefix">
         <div v-if="prefixIcon" class="prefix-icon">
           <component :is="prefixIcon"></component>
@@ -41,7 +40,7 @@
           class="clearable"
           @mousedown.prevent="handleClear"
         >
-          <i class="ti icon-close"></i>
+          <i class="ti ti-icon-close"></i>
         </div>
         <div v-if="showWordLimit" class="word-limit">
           <span class="word-limit__inner"
@@ -55,7 +54,7 @@
           <i
             :class="[
               'ti',
-              isPassword ? 'icon-browse' : 'icon-eye-close',
+              isPassword ? 'ti-icon-eye' : 'ti-icon-eye-close',
               'password'
             ]"
           ></i>

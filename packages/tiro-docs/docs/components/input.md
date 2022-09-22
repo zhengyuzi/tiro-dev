@@ -12,15 +12,18 @@ const passwordValue = ref('')
 const styleType = ref('')
 const iconValue = ref('')
 
-const Search = h(TiIcon, { name: 'search', size: 18, color: '#aaa' })
-const Ashbin = h(TiIcon, { name: 'ashbin', size: 20, color: '#aaa' })
+const Search = h(TiIcon, { name: 'ti-icon-search', size: 18, color: '#aaa' })
+const Ashbin = h(TiIcon, { name: 'ti-icon-ashbin', size: 20, color: '#aaa' })
 </script>
 
 <style lang="scss">
 .ti-example-item {
     margin: 15px 0;
+    display: flex;
+    align-items: center;
     label {
       font-size: 14px;
+      width: 80px;
     }
 }
 </style>
@@ -30,11 +33,11 @@ const Ashbin = h(TiIcon, { name: 'ashbin', size: 20, color: '#aaa' })
 
 ## 基础用法
 ::: show
-<ti-input v-model='baseValue' />
+<ti-input v-model='baseValue' style="width: 200px" />
 
 ``` vue
 <template>
-  <ti-input v-model="value" />
+  <ti-input v-model="value" style="width: 200px" />
 </template>
 
 <script setup lang="ts">
@@ -47,7 +50,7 @@ const value = ref("")
 ## 禁用
 添加 `disabled` 可禁用输入框
 ::: show
-<ti-input disabled />
+<ti-input disabled style="width: 200px" />
 
 ``` vue
 <template>
@@ -64,7 +67,7 @@ const value = ref("")
 ## Placeholder
 通过 `placeholder` 属性设置占位文本
 ::: show
-<ti-input v-model='placeholderValue' placeholder='说点儿什么~' />
+<ti-input v-model='placeholderValue' placeholder='说点儿什么~' style="width: 200px" />
 
 ``` vue
 <template>
@@ -83,22 +86,22 @@ const value = ref("")
 ::: show
 <div class="ti-example-item">
     <label>small</label>
-    <ti-input v-model='sizeValue' style="width: 300px" size="small" />
+    <ti-input v-model='sizeValue' style="width: 200px" size="small" />
 </div>
 <div class="ti-example-item">
     <label>default</label>
-    <ti-input v-model='sizeValue1' style="width: 300px" />
+    <ti-input v-model='sizeValue1' style="width: 200px" />
 </div>
 <div class="ti-example-item">
     <label>large</label>
-    <ti-input v-model='sizeValue2' style="width: 300px" size="large" />
+    <ti-input v-model='sizeValue2' style="width: 200px" size="large" />
 </div>
 
 ``` vue
 <template>
-  <ti-input v-model="value" size="small" />
-  <ti-input v-model="value" />
-  <ti-input v-model="value" size="large" />
+  <ti-input v-model="value" size="small" style="width: 200px" />
+  <ti-input v-model="value" style="width: 200px" />
+  <ti-input v-model="value" size="large" style="width: 200px" />
 </template>
 
 <script setup lang="ts">
@@ -111,7 +114,7 @@ const value = ref("")
 ## 清空
 通过 `clearable` 属性设置清空按钮
 ::: show
-<ti-input v-model='clearableValue' clearable />
+<ti-input v-model='clearableValue' clearable style="width: 200px" />
 
 ``` vue
 <template>
@@ -131,15 +134,15 @@ const value = ref("")
 `show-password = false` 可以隐藏控制显隐密码的按钮
 ::: show
 <div class="ti-example-item">
-  <ti-input v-model='passwordValue' type="password" />
+  <ti-input v-model='passwordValue' type="password" style="width: 200px" />
 </div>
 <div class="ti-example-item">
-  <ti-input v-model='passwordValue' type="password" :show-password="false" />
+  <ti-input v-model='passwordValue' type="password" :show-password="false" style="width: 200px" />
 </div>
 
 ``` vue
 <template>
-  <ti-input v-model="value" type="password"  />
+  <ti-input v-model="value" type="password" />
   <ti-input v-model="value" type="password" :show-password="false" />
 </template>
 
@@ -155,19 +158,19 @@ const value = ref("")
 ::: show
 <div class="ti-example-item">
     <label>success</label>
-    <ti-input v-model='styleType' style="width: 300px" style-type="success" />
+    <ti-input v-model='styleType' style="width: 200px" style-type="success" />
 </div>
 <div class="ti-example-item">
     <label>info</label>
-    <ti-input v-model='styleType' style="width: 300px" style-type="info" />
+    <ti-input v-model='styleType' style="width: 200px" style-type="info" />
 </div>
 <div class="ti-example-item">
     <label>danger</label>
-    <ti-input v-model='styleType' style="width: 300px" style-type="danger" />
+    <ti-input v-model='styleType' style="width: 200px" style-type="danger" />
 </div>
 <div class="ti-example-item">
     <label>warning</label>
-    <ti-input v-model='styleType' style="width: 300px" style-type="warning" />
+    <ti-input v-model='styleType' style="width: 200px" style-type="warning" />
 </div>
 
 ``` vue
@@ -189,10 +192,10 @@ const value = ref("")
 在输入框中添加图标 `prefixIcon` 和 `suffixIcon`
 ::: show
 <div class="ti-example-item">
-  <ti-input v-model='iconValue' :prefixIcon="Ashbin" />
+  <ti-input v-model='iconValue' :prefixIcon="Ashbin" style="width: 200px" />
 </div>
 <div class="ti-example-item">
-  <ti-input v-model='iconValue' :suffixIcon="Search" />
+  <ti-input v-model='iconValue' :suffixIcon="Search" style="width: 200px" />
 </div>
 
 ``` vue
@@ -207,8 +210,8 @@ import { TiIcon } from '@tiro/ui'
 
 const value = ref("")
 
-const Search = h(TiIcon, { name: 'search', size: 18, color: '#aaa' })
-const Ashbin = h(TiIcon, { name: 'ashbin', size: 20, color: '#aaa' })
+const Search = h(TiIcon, { name: 'ti-icon-search', size: 18, color: '#aaa' })
+const Ashbin = h(TiIcon, { name: 'ti-icon-ashbin', size: 20, color: '#aaa' })
 </script>
 ```
 :::

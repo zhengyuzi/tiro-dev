@@ -6,7 +6,7 @@
       </div>
       <div class="example-handle">
         <ti-icon
-          name="code"
+          name="ti-icon-code"
           :size="24"
           @click="codeShow"
           :class="[isShow ? 'is-show' : '']"
@@ -33,7 +33,7 @@ const codeShow = () => {
 .ti-example {
   margin: 20px 0px;
   background-color: var(--vp-c-bg);
-  color: var(--vp-c-text-code);
+  color: var(--vp-c-font);
   .example-box {
     border: 1px dashed var(--vp-c-gray-border);
     border-radius: 2px;
@@ -52,7 +52,7 @@ const codeShow = () => {
       cursor: pointer;
       user-select: none;
       padding: 0 5px;
-      color: var(--vp-c-text-light-3);
+      color: var(--vp-c-text-3);
       &:hover {
         color: var(--vp-c-indigo-soft);
       }

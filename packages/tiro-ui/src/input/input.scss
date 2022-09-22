@@ -10,13 +10,17 @@ $input-font-size-large: 15px;
 
 .#{$prefix-input} {
   width: 100%;
-  height: auto;
+  box-sizing: border-box;
 
   &:not(.is-disabled):not(.is-focus):hover &__wrapper{
     border-color: $--ti-color-info-300;
   }
 
   &.is-focus {
+    .#{$prefix-input}__wrapper {
+      border-width: 2px;
+    }
+
     .#{$prefix-input}__wrapper.is-style-type-default {
       background-color: $--ti-color-primary-light-1;
       border-color: $--ti-color-primary;
@@ -29,7 +33,7 @@ $input-font-size-large: 15px;
 
     .#{$prefix-input}__wrapper.is-style-type-info {
       background-color: $--ti-color-info-100;
-      border-color: $--ti-color-info-400;
+      border-color: $--ti-color-info-300;
     }
 
     .#{$prefix-input}__wrapper.is-style-type-danger {
@@ -45,20 +49,21 @@ $input-font-size-large: 15px;
   
   &__wrapper {
     width: 100%;
-    height: auto;
+    height: 100%;
     color: $--ti-color-black;
     padding: 0px 10px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-color: $--ti-color-info-200;
     border-radius: 4px;
-    box-sizing: border-box;
     position: relative;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 
     .#{$prefix-input}__inner {
       width: 100%;
+      height: 100%;
       font-size: inherit;
       background-color: $--ti-color-transparent;
       flex: 1;
@@ -71,45 +76,45 @@ $input-font-size-large: 15px;
         }
       }
     }
+  }
 
-    &.is-default {
-      .password,
-      .clearable {
-        font-size: 18px;
-        color: $--ti-color-info-400;
-        cursor: pointer;
-      }
-      .#{$prefix-input}__inner {
-        height: $input-height-default;
-        font-size: $input-font-size-default;
-      }
+  &.is-default {
+    height: $input-height-default;
+    .password,
+    .clearable {
+      font-size: 18px;
+      color: $--ti-color-info-400;
+      cursor: pointer;
+    }
+    .#{$prefix-input}__inner {
+      font-size: $input-font-size-default;
+    }
+  }
+
+  &.is-small {
+    height: $input-height-small;
+    .password,
+    .clearable {
+      font-size: 16px;
+      color: $--ti-color-info-400;
+      cursor: pointer;
+    }
+    .#{$prefix-input}__inner {
+      font-size: $input-font-size-small;
+    }
+  }
+
+  &.is-large {
+    height: $input-height-large;
+    .password,
+    .clearable {
+      font-size: 20px;
+      color: $--ti-color-info-400;
+      cursor: pointer;
     }
 
-    &.is-small {
-      .password,
-      .clearable {
-        font-size: 16px;
-        color: $--ti-color-info-400;
-        cursor: pointer;
-      }
-      .#{$prefix-input}__inner {
-        height: $input-height-small;
-        font-size: $input-font-size-small;
-      }
-    }
-
-    &.is-large {
-      .password,
-      .clearable {
-        font-size: 20px;
-        color: $--ti-color-info-400;
-        cursor: pointer;
-      }
-
-      .#{$prefix-input}__inner {
-        height: $input-height-large;
-        font-size: $input-font-size-large;
-      }
+    .#{$prefix-input}__inner {
+      font-size: $input-font-size-large;
     }
   }
 

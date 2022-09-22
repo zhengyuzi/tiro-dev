@@ -1,4 +1,4 @@
-import type { App } from 'vue'
+import { App, h } from 'vue'
 import Icon from './icon.vue'
 
 Icon.install = function (app: App) {

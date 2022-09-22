@@ -1,5 +1,5 @@
 <template>
-  <i :class="['ti', `icon-${name}`]" :style="iconStyle"></i>
+  <i :class="['ti', `${name}`]" :style="iconStyle"></i>
 </template>
 
 <script setup lang="ts">

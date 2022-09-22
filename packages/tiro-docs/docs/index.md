@@ -14,4 +14,4 @@ hero:
       link: /guide/introduction
     - theme: alt
       text: View on GitHub
-      link: https://github.com/vuejs/vitepress
+      link: https://github.com/ZhengYuZi/tiro-dev

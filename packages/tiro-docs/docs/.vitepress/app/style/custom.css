@@ -114,7 +114,9 @@
 
   --vp-c-sponsor: #fd1d7c;
 
-  --vp-c-gray-border: var(--vp-c-gray-light-4)
+  --vp-c-gray-border: var(--vp-c-gray-light-4);
+
+  --vp-c-font: var(--vp-c-black);
 }
 
 .dark {
@@ -141,7 +143,9 @@
 
   --vp-c-text-code: var(--vp-c-indigo-lighter);
 
-  --vp-c-gray-border: var(--vp-c-gray-dark-3)
+  --vp-c-gray-border: var(--vp-c-gray-dark-3);
+  
+  --vp-c-font: var(--vp-c-white);
 }
 
 /**
@@ -391,4 +395,21 @@
   white-space: pre-wrap;
   border: none;
   background-color: var(--vp-c-bg);
+}
+
+.pager-link {
+  border: none !important;
+}
+
+.pager-link:hover {
+  background-color: var(--vp-c-green-dimm-3);
+}
+
+.VPSidebar .group {
+  border-top: none !important;
+  margin-top: 10px !important;
+}
+
+.VPNav .VPNavBarTitle {
+  border-bottom: none !important;
 }
