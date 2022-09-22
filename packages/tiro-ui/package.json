@@ -1,0 +1,11 @@
+{
+  "name": "@tiro/ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "dts": "vue-tsc --declaration --emitDeclarationOnly --project tsconfig.json --outDir ../build/types"
+  },
+  "author": "",
+  "license": "ISC"
+}

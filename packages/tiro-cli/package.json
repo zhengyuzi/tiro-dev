@@ -1,0 +1,7 @@
+{
+  "name": "@tiro/cli",
+  "version": "1.0.0",
+  "dependencies": {
+    "fast-glob": "^3.2.12"
+  }
+}
