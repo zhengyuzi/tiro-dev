@@ -33,7 +33,10 @@ export default defineConfig({
       '/components/': [
         {
           text: '基础组件',
-          items: [{ text: 'Icon 图标', link: '/components/icon' }]
+          items: [
+            { text: 'Icon 图标', link: '/components/icon' },
+            { text: 'Button 按钮', link: '/components/button' }
+          ]
         },
         {
           text: '表单组件',

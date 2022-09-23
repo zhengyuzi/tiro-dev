@@ -3,37 +3,67 @@ $--ti-color-white: #ffffff;
 $--ti-color-black: #000000;
 
 // 主色
-$--ti-color-primary: rgb(192, 204, 239); // 雪蓝
+$--ti-color-primary: rgb(121, 145, 209); // 雪蓝
 $--ti-color-primary-light-1: rgba(121, 145, 209, 0.05);
 $--ti-color-primary-light-2: rgba(121, 145, 209, 0.3);
 $--ti-color-primary-light-3: rgba(121, 145, 209, 0.6);
+$--ti-color-primary-dark-1: rgb(106, 131, 198);
+$--ti-color-primary-dark-2: rgb(87, 111, 178);
+$--ti-color-primary-dark-3: rgb(66, 91, 158);
 
 // else
 $--ti-color-transparent: transparent;
 
-// Info
-$--ti-color-info-50: #fcfcfc;
-$--ti-color-info-100: #f7f7f7;
-$--ti-color-info-200: #e6e6e6;
-$--ti-color-info-300: #cccccc;
-$--ti-color-info-400: #aaaaaa;
-$--ti-color-info-500: #8c8c8c;
-$--ti-color-info-600: #606060;
+// gray
+$--ti-color-gray-50: #fcfcfc;
+$--ti-color-gray-100: #f7f7f7;
+$--ti-color-gray-200: #e6e6e6;
+$--ti-color-gray-300: #cccccc;
+$--ti-color-gray-400: #aaaaaa;
+$--ti-color-gray-500: #8c8c8c;
+$--ti-color-gray-600: #606060;
 
-// Warning 槐黄
-$--ti-color-warning: rgb(239, 228, 82);
-$--ti-color-warning-light-1: rgba(239, 228, 82, 0.05);
-$--ti-color-warning-light-2: rgba(239, 228, 82, 0.3);
-$--ti-color-warning-light-3: rgba(239, 228, 82, 0.6);
+// Info
+$--ti-color-info: rgb(127, 127, 127);
+$--ti-color-info-light-1: rgba(127, 127, 127, 0.05);
+$--ti-color-info-light-2: rgba(127, 127, 127, 0.3);
+$--ti-color-info-light-3: rgba(127, 127, 127, 0.6);
+$--ti-color-info-dark-1: rgb(109, 109, 109);
+$--ti-color-info-dark-2: rgb(89, 88, 88);
+$--ti-color-info-dark-3: rgb(69, 68, 68);
+
+// Warning
+$--ti-color-warning: rgb(255, 204, 0);
+$--ti-color-warning-light-1: rgba(255, 204, 0, 0.05);
+$--ti-color-warning-light-2: rgba(255, 204, 0, 0.3);
+$--ti-color-warning-light-3: rgba(255, 204, 0, 0.6);
+$--ti-color-warning-dark-1: rgb(243, 194, 0);
+$--ti-color-warning-dark-2: rgb(233, 186, 0);
+$--ti-color-warning-dark-3: rgb(217, 174, 1);
 
 // Success 巴黎绿
 $--ti-color-success: rgb(0, 180, 131);
 $--ti-color-success-light-1: rgba(0, 180, 131, 0.05);
 $--ti-color-success-light-2: rgba(0, 180, 131, 0.3);
 $--ti-color-success-light-3: rgba(0, 180, 131, 0.6);
+$--ti-color-success-dark-1: rgb(0, 165, 121);
+$--ti-color-success-dark-2: rgb(0, 147, 108);
+$--ti-color-success-dark-3: rgb(0, 132, 97);
 
 // Danger 猩红
 $--ti-color-danger: rgb(196, 55, 57);
 $--ti-color-danger-light-1: rgba(196, 55, 57, 0.05);
 $--ti-color-danger-light-2: rgba(196, 55, 57, 0.3);
 $--ti-color-danger-light-3: rgba(196, 55, 57, 0.6);
+$--ti-color-danger-dark-1: rgb(183, 47, 50);
+$--ti-color-danger-dark-2: rgb(161, 34, 36);
+$--ti-color-danger-dark-3: rgb(140, 24, 26);
+
+// Bright
+$--ti-color-bright: rgb(52, 152, 251);
+$--ti-color-bright-light-1: rgba(52, 152, 251, 0.05);
+$--ti-color-bright-light-2: rgba(52, 152, 251, 0.3);
+$--ti-color-bright-light-3: rgba(52, 152, 251, 0.6);
+$--ti-color-bright-dark-1: rgb(36, 137, 238);
+$--ti-color-bright-dark-2: rgb(23, 122, 220);
+$--ti-color-bright-dark-3: rgb(10, 107, 203);

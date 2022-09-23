@@ -176,5 +176,5 @@ defineExpose({
 
 <style lang="scss" scoped>
 @import '../../style/base.scss';
-@import './Input.scss';
+@import './input.scss';
 </style>

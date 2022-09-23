@@ -50,14 +50,14 @@
   --vp-c-indigo-dark: #1d2f3f;
   --vp-c-indigo-darker: #14212e;
 
-  --vp-c-green: rgb(121, 145, 209);
-  --vp-c-green-light: rgb(126, 153, 225);
-  --vp-c-green-lighter: rgb(130, 155, 222);
-  --vp-c-green-dark: rgb(102, 122, 176);
-  --vp-c-green-darker: rgb(92, 110, 159);
-  --vp-c-green-dimm-1: rgba(121, 145, 209, 0.5);
-  --vp-c-green-dimm-2: rgba(121, 145, 209, 0.25);
-  --vp-c-green-dimm-3: rgba(121, 145, 209, 0.05);
+  --vp-c-green: #42b883;
+  --vp-c-green-light: #42d392;
+  --vp-c-green-lighter: #35eb9a;
+  --vp-c-green-dark: #33a06f;
+  --vp-c-green-darker: #155f3e;
+  --vp-c-green-dimm-1: rgba(66, 184, 131, 0.5);
+  --vp-c-green-dimm-2: rgba(66, 184, 131, 0.25);
+  --vp-c-green-dimm-3: rgba(66, 184, 131, 0.05);
 
   --vp-c-yellow: #ffc517;
   --vp-c-yellow-light: #fcd253;
