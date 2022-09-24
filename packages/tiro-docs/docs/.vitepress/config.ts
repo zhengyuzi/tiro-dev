@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import { containerPlugin, tablePlugin } from './app/plugins/md-it-plugins'
 
 export default defineConfig({
@@ -53,5 +55,8 @@ export default defineConfig({
       md.use(...containerPlugin())
       md.use(...tablePlugin())
     }
+  },
+  vite: {
+    plugins: [vueJsx()]
   }
 })

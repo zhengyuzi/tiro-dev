@@ -1,5 +1,5 @@
-import { App, h } from 'vue'
-import Icon from './icon.vue'
+import { App } from 'vue'
+import Icon from './icon'
 
 Icon.install = function (app: App) {
   app.component('TiIcon', Icon)

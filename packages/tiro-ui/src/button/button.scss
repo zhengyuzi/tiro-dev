@@ -1,3 +1,5 @@
+@import '../../style/base.scss';
+
 $prefix-button: 'ti-button';
 
 $button-size-small: 11px;
@@ -22,7 +24,6 @@ $button-size-large-font: 16px;
 
 @mixin type($color, $light, $dark) {
   &:not(.is-fill):not(.is-text) {
-    // border-color: $--ti-color-gray-200;
     &:after {
       content: '';
       border: 1px solid $--ti-color-gray-200;
@@ -33,18 +34,11 @@ $button-size-large-font: 16px;
     &:hover:not(.is-disabled):not(.is-dashed) {
       @include border($color, $light);
       color: $dark;
-      //   border-width: 2px;
-      //   border-color: $color;
-      //   background-color: $light;
-      //   color: $dark;
     }
     &:active:not(.is-disabled):not(.is-dashed) {
       border-color: $dark !important;
     }
     &:focus:not(.is-disabled):not(.is-dashed) {
-      //   border-width: 2px;
-      //   border-color: $color;
-      //   background-color: $light;
       color: $dark;
       @include border($color, $light);
     }
@@ -58,7 +52,6 @@ $button-size-large-font: 16px;
         border-radius: 3px;
         inset: 0;
       }
-      // border-color: $color;
       color: $color;
       &:hover {
         &:after {
@@ -104,16 +97,10 @@ $button-size-large-font: 16px;
   outline: none;
   user-select: none;
   box-sizing: border-box;
-  // border-width: 1px;
-  // border-style: solid;
   border-radius: 3px;
   background-color: $--ti-color-transparent;
   border-color: $--ti-color-transparent;
   position: relative;
-
-  //   &.is-dashed {
-  //     border-style: dashed !important;
-  //   }
 
   &:active:not(.is-disabled) {
     transform: scale(0.98);
