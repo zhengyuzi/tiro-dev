@@ -1,3 +1,5 @@
+@import '../../style/base.scss';
+
 $prefix-input: 'ti-input';
 
 $input-height-default: 35px;
@@ -32,8 +34,8 @@ $input-font-size-large: 15px;
     }
 
     .#{$prefix-input}__wrapper.is-style-type-info {
-      background-color: $--ti-color-gray-100;
-      border-color: $--ti-color-gray-300;
+      background-color: $--ti-color-info-light-1;
+      border-color: $--ti-color-info;
     }
 
     .#{$prefix-input}__wrapper.is-style-type-danger {
@@ -45,13 +47,17 @@ $input-font-size-large: 15px;
       background-color: $--ti-color-warning-light-1;
       border-color: $--ti-color-warning;
     }
+
+    .#{$prefix-input}__wrapper.is-style-type-bright {
+      background-color: $--ti-color-bright-light-1;
+      border-color: $--ti-color-bright;
+    }
   }
   
   &__wrapper {
     width: 100%;
     height: 100%;
     color: $--ti-color-black;
-    padding: 0px 10px;
     border-width: 1px;
     border-style: solid;
     border-color: $--ti-color-gray-200;
@@ -64,6 +70,7 @@ $input-font-size-large: 15px;
     .#{$prefix-input}__inner {
       width: 100%;
       height: 100%;
+      padding: 0 10px;
       font-size: inherit;
       background-color: $--ti-color-transparent;
       flex: 1;
@@ -120,17 +127,17 @@ $input-font-size-large: 15px;
 
   &__prefix {
     & > * {
-      padding-right: 10px;
       display: inline-flex;
       align-items: center;
+      padding-left: 10px;
     }
   }
 
   &__suffix {
     & > * {
-      padding-left: 10px;
       display: inline-flex;
       align-items: center;
+      padding-right: 10px;
     }
     .word-limit {
       font-size: 12px;

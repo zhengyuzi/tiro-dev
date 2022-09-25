@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { ExtractPublicPropTypes } from '../_utils'
 import '../../style/icon.scss'
 
 const props = {
@@ -6,6 +7,8 @@ const props = {
   size: Number,
   color: String
 }
+
+export type IconProps = ExtractPublicPropTypes<typeof props>
 
 const Button = defineComponent({
   props,

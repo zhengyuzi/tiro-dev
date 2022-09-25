@@ -1,11 +1,24 @@
 <script setup lang="ts">
 import { h, ref } from 'vue'
-import { TiIcon, TiButton } from '@tiro/ui'
+import { TiIcon, TiButton, TiInput } from '@tiro/ui'
+
+const value = ref('')
+const Input = ref()
+
+const handleInput = (v: any) => {
+  // console.log(v)
+}
+
+const handleFocus = () => {
+  Input.value.focus()
+}
+
+const icon = h(TiIcon, { name: 'ti-icon-good', size: 20, color: '#aaa' })
 </script>
 
 <template>
   <div class="example">
-    <ti-button size="small">click</ti-button>
+    <!-- <ti-button size="small">click</ti-button>
     <ti-button>click</ti-button>
     <ti-button size="large">click</ti-button>
     <ti-button type="success">click</ti-button>
@@ -35,7 +48,14 @@ import { TiIcon, TiButton } from '@tiro/ui'
     <ti-button type="bright" text>
       <ti-icon name="ti-icon-search" />
       点击
-    </ti-button>
+    </ti-button> -->
+    <ti-input
+      ref="Input"
+      v-model="value"
+      style="width: 250px"
+      :prefix-icon="icon"
+    ></ti-input>
+    <ti-button @click="handleFocus">click</ti-button>
   </div>
 </template>
 

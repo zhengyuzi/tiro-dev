@@ -69,7 +69,13 @@ $button-size-large-font: 16px;
     background-color: $color;
     color: $--ti-color-white;
   }
-  &.is-text:not(.is-fill) {
+  &.is-plain:not(.is-fill) {
+    &:after {
+      border-color: $light !important;
+    }
+    background-color: $light;
+  }
+  &.is-text:not(.is-fill):not(.is-plain) {
     color: $color;
     &:hover:not(.is-disabled),
     &:focus:not(.is-disabled) {
@@ -85,9 +91,18 @@ $button-size-large-font: 16px;
   &.is-circle {
     padding: 0;
     width: $height;
-    border-radius: 50%;
     text-align: center;
     line-height: $height;
+    border-radius: 50%;
+    &:after {
+      border-radius: 50% !important;
+    }
+  }
+  &.is-round:not(.is-circle)  {
+    border-radius: 20px;
+    &:after {
+      border-radius: 20px !important;
+    }
   }
 }
 

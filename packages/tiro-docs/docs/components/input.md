@@ -157,20 +157,24 @@ const value = ref("")
 属性 `style-type` 多种主题可选 `default` 、 `success` 、 `info` 、 `danger` 、 `warning`
 ::: show
 <div class="ti-example-item">
-    <label>success</label>
-    <ti-input v-model='styleType' style="width: 200px" style-type="success" />
+  <label>success</label>
+  <ti-input v-model='styleType' style="width: 200px" style-type="success" />
 </div>
 <div class="ti-example-item">
-    <label>info</label>
-    <ti-input v-model='styleType' style="width: 200px" style-type="info" />
+  <label>info</label>
+  <ti-input v-model='styleType' style="width: 200px" style-type="info" />
 </div>
 <div class="ti-example-item">
-    <label>danger</label>
-    <ti-input v-model='styleType' style="width: 200px" style-type="danger" />
+  <label>danger</label>
+  <ti-input v-model='styleType' style="width: 200px" style-type="danger" />
 </div>
 <div class="ti-example-item">
-    <label>warning</label>
-    <ti-input v-model='styleType' style="width: 200px" style-type="warning" />
+  <label>warning</label>
+  <ti-input v-model='styleType' style="width: 200px" style-type="warning" />
+</div>
+<div class="ti-example-item">
+  <label>bright</label>
+  <ti-input v-model='styleType' style="width: 200px" style-type="bright" />
 </div>
 
 ``` vue
@@ -179,6 +183,7 @@ const value = ref("")
   <ti-input v-model="value" style-type="info" />
   <ti-input v-model="value" style-type="danger" />
   <ti-input v-model="value" style-type="warning" />
+  <ti-input v-model="value" style-type="bright" />
 </template>
 
 <script setup lang="ts">
@@ -223,7 +228,7 @@ const Ashbin = h(TiIcon, { name: 'ti-icon-ashbin', size: 20, color: '#aaa' })
 | 属性名  | 说明  | 类型 | 可选值 | 默认值 |
 | :----: | :----: | :----: | :----: | :----: |
 | type  | input类型 | string | `text` , `password` | `text` |
-| size  | input大小 | number | `large` , `default` , `small` | `default` |
+| size  | input大小 | string | `large` , `default` , `small` | `default` |
 | v-model | 绑定值 | string / number | —— | —— |
 | placeholder | 占位符 | string | —— | 请输入内容 |
 | disabled | 是否禁用 | boolean | —— | false |

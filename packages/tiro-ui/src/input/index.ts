@@ -1,5 +1,5 @@
 import type { App } from 'vue'
-import Input from './input.vue'
+import Input from './input'
 
 Input.install = function (app: App) {
   app.component('TiInput', Input)

@@ -41,6 +41,14 @@ const props = {
   circle: {
     type: Boolean,
     default: false
+  },
+  plain: {
+    type: Boolean,
+    default: false
+  },
+  round: {
+    type: Boolean,
+    default: false
   }
 }
 
@@ -49,7 +57,8 @@ export type ButtonProps = ExtractPublicPropTypes<typeof props>
 const Button = defineComponent({
   props,
   setup(props, { slots }) {
-    const { disabled, size, type, dashed, fill, text, circle } = props
+    const { disabled, size, type, dashed, fill, text, circle, plain, round } =
+      props
     return () => (
       <button
         disabled={disabled}
@@ -57,11 +66,13 @@ const Button = defineComponent({
           'ti-button',
           `is-${size || 'medium'}`,
           `is-${type || 'default'}`,
-          dashed ? 'is-dashed' : '',
-          fill ? 'is-fill' : '',
-          text ? 'is-text' : '',
-          disabled ? 'is-disabled' : '',
-          circle ? 'is-circle' : ''
+          !dashed || 'is-dashed',
+          !fill || 'is-fill',
+          !text || 'is-text',
+          !disabled || 'is-disabled',
+          !circle || 'is-circle',
+          !plain || 'is-plain',
+          !round || 'is-round'
         ]}
       >
         {slots.default && slots.default()}

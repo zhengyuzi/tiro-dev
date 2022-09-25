@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { containerPlugin, tablePlugin } from './app/plugins/md-it-plugins'
 
@@ -9,6 +8,11 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: '/logo.svg' }]],
   themeConfig: {
     logo: '/logo.svg',
+    algolia: {
+      appId: '7IAU1WLYJ0',
+      apiKey: 'b593f332d7e31267d72e4bb239f0eb06',
+      indexName: 'tiro-ui'
+    },
     nav: [
       {
         text: '指南',
