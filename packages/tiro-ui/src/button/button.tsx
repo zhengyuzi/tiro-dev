@@ -1,25 +1,15 @@
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import { ExtractPublicPropTypes } from '../_utils'
+import { ExtractPublicPropTypes, ComponentType, ComponentSize } from '../_utils'
 import './button.scss'
-
-export type ButtonType =
-  | 'default'
-  | 'success'
-  | 'info'
-  | 'danger'
-  | 'warning'
-  | 'bright'
-
-export type ButtonSize = 'small' | 'medium' | 'large'
 
 const props = {
   size: {
-    type: String as PropType<ButtonSize>,
+    type: String as PropType<ComponentSize>,
     default: 'medium'
   },
   type: {
-    type: String as PropType<ButtonType>,
+    type: String as PropType<ComponentType>,
     default: 'default'
   },
   dashed: {

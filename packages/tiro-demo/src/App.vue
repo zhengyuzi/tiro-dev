@@ -1,61 +1,39 @@
 <script setup lang="ts">
 import { h, ref } from 'vue'
-import { TiIcon, TiButton, TiInput } from '@tiro/ui'
+import { TiIcon, TiButton, TiInput, TiSelect } from '@tiro/ui'
 
-const value = ref('')
-const Input = ref()
-
-const handleInput = (v: any) => {
-  // console.log(v)
-}
-
-const handleFocus = () => {
-  Input.value.focus()
-}
-
-const icon = h(TiIcon, { name: 'ti-icon-good', size: 20, color: '#aaa' })
+const options = [
+  {
+    label: 'Drive My Car',
+    value: 'song1'
+  },
+  {
+    label: 'Norwegian Wood',
+    value: 'song2'
+  },
+  {
+    label: "You Won't See",
+    value: 'song3',
+    disabled: true
+  },
+  {
+    label: 'Nowhere Man',
+    value: 'song4'
+  },
+  {
+    label: 'Think For Yourself',
+    value: 'song5'
+  },
+  {
+    label: 'The Word',
+    value: 'song6'
+  }
+]
 </script>
 
 <template>
   <div class="example">
-    <!-- <ti-button size="small">click</ti-button>
-    <ti-button>click</ti-button>
-    <ti-button size="large">click</ti-button>
-    <ti-button type="success">click</ti-button>
-    <ti-button type="warning">click</ti-button>
-    <ti-button type="danger">click</ti-button>
-    <ti-button type="info">click</ti-button>
-    <ti-button type="bright">click</ti-button>
-    <ti-button dashed>click</ti-button>
-    <ti-button type="success" dashed>click</ti-button>
-    <ti-button type="warning" dashed>click</ti-button>
-    <ti-button type="danger" dashed>click</ti-button>
-    <ti-button type="info" dashed>click</ti-button>
-    <ti-button type="bright" dashed>click</ti-button>
-    <ti-button fill>click</ti-button>
-    <ti-button type="success" fill circle>
-      <ti-icon name="ti-icon-search" />
-    </ti-button>
-    <ti-button type="warning" fill>click</ti-button>
-    <ti-button type="danger" fill>click</ti-button>
-    <ti-button type="info" fill>click</ti-button>
-    <ti-button type="bright" fill>click</ti-button>
-    <ti-button text>click</ti-button>
-    <ti-button type="success" text>click</ti-button>
-    <ti-button type="warning" text>click</ti-button>
-    <ti-button type="danger" text>click</ti-button>
-    <ti-button type="info" text>click</ti-button>
-    <ti-button type="bright" text>
-      <ti-icon name="ti-icon-search" />
-      点击
-    </ti-button> -->
-    <ti-input
-      ref="Input"
-      v-model="value"
-      style="width: 250px"
-      :prefix-icon="icon"
-    ></ti-input>
-    <ti-button @click="handleFocus">click</ti-button>
+    <ti-select style="width: 200px" :options="options"></ti-select>
   </div>
 </template>
 
@@ -65,6 +43,7 @@ body {
   padding: 0;
   margin: 0;
 }
+
 .example {
   width: 100%;
   height: 100%;
@@ -72,6 +51,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 20%;
+
   & > * {
     margin: 10px 0;
   }
