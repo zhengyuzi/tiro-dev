@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { h, ref } from 'vue'
-import { TiIcon, TiButton, TiInput, TiSelect } from '@tiro/ui'
+import { TiSelect, TiButton } from '@tiro/ui'
 
 const options = [
   {
@@ -34,6 +34,7 @@ const options = [
 <template>
   <div class="example">
     <ti-select style="width: 200px" :options="options"></ti-select>
+    <ti-button>点击</ti-button>
   </div>
 </template>
 

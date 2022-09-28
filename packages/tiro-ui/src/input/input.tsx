@@ -1,7 +1,11 @@
 import { defineComponent, ref } from 'vue'
 import type { PropType, Component, VNode, Ref } from 'vue'
 import { ExtractPublicPropTypes } from '../_utils'
-import './input.scss'
+import style from './style/index.cssr'
+
+style.mount({
+  id: 'ti-input'
+})
 
 const props = {
   disabled: {
@@ -23,8 +27,8 @@ const props = {
     default: ''
   },
   size: {
-    type: String as PropType<'large' | 'default' | 'small'>,
-    default: 'default'
+    type: String as PropType<'large' | 'medium' | 'small'>,
+    default: 'medium'
   },
   autofocus: {
     type: Boolean,

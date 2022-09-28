@@ -1,6 +1,10 @@
-import { defineComponent } from 'vue'
+import { defineComponent, h, toRefs } from 'vue'
 import { ExtractPublicPropTypes } from '../_utils'
-import '../../style/icon.scss'
+import style from './icons.cssr'
+
+style.mount({
+  id: 'ti-icon'
+})
 
 const props = {
   name: String,
@@ -13,12 +17,13 @@ export type IconProps = ExtractPublicPropTypes<typeof props>
 const Button = defineComponent({
   props,
   setup(props) {
-    const { name, size, color } = props
-    const iconStyle = {
-      fontSize: `${size}px`,
-      color
-    }
-    return () => <i class={['ti', `${name}`]} style={iconStyle}></i>
+    const { name, size, color } = toRefs(props)
+
+    return () =>
+      h('i', {
+        class: ['ti', `${name.value}`],
+        style: { fontSize: `${size.value}px`, color: color.value }
+      })
   }
 })
 

@@ -1,7 +1,11 @@
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import { ExtractPublicPropTypes, ComponentType, ComponentSize } from '../_utils'
-import './button.scss'
+import style from './style/index.cssr'
+
+style.mount({
+  id: 'ti-button'
+})
 
 const props = {
   size: {

@@ -82,14 +82,14 @@ const value = ref("")
 :::
 
 ## 尺寸
-改变 `size` 属性调整输入框大小, 内置有三个尺寸 `default`  `small` `large`
+改变 `size` 属性调整输入框大小, 内置有三个尺寸  `small` 、 `medium` 、 `large`
 ::: show
 <div class="ti-example-item">
     <label>small</label>
     <ti-input v-model='sizeValue' style="width: 200px" size="small" />
 </div>
 <div class="ti-example-item">
-    <label>default</label>
+    <label>medium</label>
     <ti-input v-model='sizeValue1' style="width: 200px" />
 </div>
 <div class="ti-example-item">
