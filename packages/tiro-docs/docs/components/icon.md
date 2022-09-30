@@ -47,7 +47,8 @@ const icons = [
 "ti-icon-heart",
 "ti-icon-hide",
 "ti-icon-picture",
-"ti-icon-search"
+"ti-icon-search",
+"ti-icon-empty"
 ]
 </script>
 

@@ -4,23 +4,23 @@ const { c } = CSSRender()
 
 export const TiScrollbar = c([
   c('&::-webkit-scrollbar', {
-    display: 'none'
+    visibility: 'hidden'
   }),
   c('&:hover', [
     c('&::-webkit-scrollbar', {
-      display: 'block',
+      visibility: 'visible',
       width: '7px',
       height: '1px'
     }),
     c(
       '&::-webkit-scrollbar-thumb',
       {
-        borderRadius: '2px',
-        backgroundColor: '#d9d9d9'
+        borderRadius: '2.5px',
+        backgroundColor: '#dcdcdc'
       },
       [
         c('&:hover', {
-          backgroundColor: '#ccc'
+          backgroundColor: '#bbb'
         })
       ]
     )

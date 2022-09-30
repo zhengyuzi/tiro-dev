@@ -4,7 +4,6 @@ import { containerPlugin, tablePlugin } from './app/plugins/md-it-plugins'
 
 export default defineConfig({
   title: 'Tiro-UI',
-  cleanUrls: 'without-subfolders',
   head: [['link', { rel: 'icon', href: '/logo.svg' }]],
   themeConfig: {
     logo: '/logo.svg',
@@ -21,7 +20,7 @@ export default defineConfig({
       },
       {
         text: '组件',
-        link: '/components/input',
+        link: '/components/icon',
         activeMatch: '/components/'
       }
     ],
@@ -46,7 +45,10 @@ export default defineConfig({
         },
         {
           text: '表单组件',
-          items: [{ text: 'Input 输入框', link: '/components/input' }]
+          items: [
+            { text: 'Input 输入框', link: '/components/input' },
+            { text: 'Select 选择器', link: '/components/select' }
+          ]
         }
       ]
     },

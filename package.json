@@ -12,7 +12,7 @@
   "scripts": {
     "docs:dev": "pnpm run -C packages/tiro-docs docs:dev",
     "docs:build": "pnpm run -C packages/tiro-docs docs:build",
-    "docs:preview": "pnpm run -C packages/tiro-docs docs:preview",
+    "docs:serve": "pnpm run -C packages/tiro-docs docs:serve",
     "demo:dev": "pnpm run -C packages/tiro-demo dev",
     "prettier": "prettier --write .",
     "lint:fix": "eslint --fix . --ext .vue,.js,.ts,.jsx,.tsx",

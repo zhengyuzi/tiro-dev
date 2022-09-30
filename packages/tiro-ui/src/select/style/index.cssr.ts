@@ -25,23 +25,22 @@ const iconSize = {
 }
 
 const handleSize = ThemeSize.map((item) => {
-  return c(
-    `&.is-${item}`,
-    {
+  return c(`&.is-${item}`, [
+    cE('inner', {
+      minHeight: selectHeight[item]
+    }),
+    cE('inner__box', {
+      fontSize: fontSize[item],
       height: selectHeight[item]
-    },
-    [
-      cE('inner__box', {
-        fontSize: fontSize[item]
-      }),
-      cE('inner__icons', {
-        fontSize: iconSize[item]
-      }),
-      cE('menu', {
-        top: `calc(10px + ${selectHeight[item]})`
-      })
-    ]
-  )
+    }),
+    cE('inner__icons', {
+      fontSize: iconSize[item]
+    }),
+    cE('multiple__item', {
+      height: `calc(${selectHeight[item]} - 10px)`,
+      lineHeight: `calc(${selectHeight[item]} - 10px)`
+    })
+  ])
 })
 
 const handleType = ThemeType.map((item) => {
@@ -57,6 +56,10 @@ const handleType = ThemeType.map((item) => {
       cE('menu__item', [
         c('&:hover', {
           backgroundColor: Theme[$light]
+        }),
+        c('&.is-select', {
+          color: Theme[$color],
+          fontWeight: 600
         })
       ])
     ])
@@ -94,7 +97,10 @@ export default c([
         border: `1px solid ${Theme['--ti-color-gray-200']}`,
         borderRadius: Theme['--ti-border-radius'],
         position: 'absolute',
-        inset: 0,
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
         pointerEvents: 'none'
       }),
       c(
@@ -104,9 +110,11 @@ export default c([
           backgroundColor: Theme['--ti-color-gray-100']
         },
         [
+          c('*', {
+            cursor: 'not-allowed !important'
+          }),
           cE('inner__box', {
-            backgroundColor: Theme['--ti-color-gray-100'],
-            cursor: 'not-allowed'
+            backgroundColor: Theme['--ti-color-gray-100']
           })
         ]
       ),
@@ -119,17 +127,61 @@ export default c([
         'inner',
         {
           width: '100%',
-          height: '100%',
           borderRadius: 'inherit',
           display: 'flex',
-          cursor: 'pointer'
+          cursor: 'pointer',
+          alignItems: 'center',
+          position: 'relative'
         },
         [
+          cE(
+            'multiple',
+            {
+              height: '100%',
+              minWidth: '10px',
+              display: 'flex',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              marginTop: '6px'
+            },
+            [
+              c('~', [
+                cE('inner__box', {
+                  padding: '0px'
+                })
+              ]),
+              cE(
+                'multiple__item',
+                {
+                  padding: '0 6px',
+                  margin: '0px 0px 6px 6px',
+                  borderRadius: Theme['--ti-border-radius'],
+                  backgroundColor: Theme['--ti-color-info-light'],
+                  color: Theme['--ti-color-gray-600'],
+                  fontSize: fontSize.small,
+                  cursor: 'auto'
+                },
+                [
+                  c(
+                    '.ti-icon-close',
+                    {
+                      marginLeft: '5px'
+                    },
+                    [
+                      c('&:hover', {
+                        borderRadius: Theme['--ti-border-radius'],
+                        backgroundColor: Theme['--ti-color-gray-300']
+                      })
+                    ]
+                  )
+                ]
+              )
+            ]
+          ),
           cE(
             'inner__box',
             {
               width: '100%',
-              height: '100%',
               padding: '0px 10px',
               borderRadius: 'inherit',
               flex: 1,
@@ -142,11 +194,9 @@ export default c([
           cE(
             'inner__icons',
             {
-              height: '100%',
               display: 'flex',
               alignItems: 'center',
-              paddingRight: '10px',
-              pointerEvents: 'none'
+              paddingRight: '10px'
             },
             [
               c(
@@ -155,7 +205,8 @@ export default c([
                   color: Theme['--ti-color-gray-400'],
                   transition: 'transform 0.3s',
                   transformOrigin: 'center center',
-                  userSelect: 'none'
+                  userSelect: 'none',
+                  pointerEvents: 'none'
                 },
                 [
                   c('&.is-reserve', {
@@ -172,7 +223,7 @@ export default c([
         {
           width: '100%',
           minHeight: '100px',
-          maxHeight: '200px',
+          maxHeight: '250px',
           boxSizing: 'border-box',
           position: 'absolute',
           zIndex: Theme['--ti-z-index-1001'],
@@ -183,21 +234,44 @@ export default c([
           borderRadius: 'inherit',
           boxShadow: Theme['--ti-box-shadow-lighter'],
           transformOrigin: '0 0',
-          cursor: 'pointer',
-          overflowY: 'auto'
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          marginTop: '5px'
         },
         [
-          TiScrollbar,
-          cE('menu__inner', {
-            padding: '5px 5px',
-            fontSize: '14px'
-          }),
-          cE('menu__item', {
-            padding: '8px 5px',
-            borderRadius: Theme['--ti-border-radius'],
-            color: Theme['--ti-color-gray-600']
-          }),
-          cE('menu__empty', {})
+          cE(
+            'menu__inner',
+            {
+              padding: '5px 5px',
+              fontSize: '14px'
+            },
+            [
+              cE(
+                'menu__item',
+                {
+                  padding: '6px 5px',
+                  borderRadius: Theme['--ti-border-radius'],
+                  color: Theme['--ti-color-gray-600'],
+                  cursor: 'pointer'
+                },
+                [
+                  c('&.is-disabled', {
+                    pointerEvents: 'none',
+                    color: Theme['--ti-color-gray-300']
+                  })
+                ]
+              ),
+              cE('menu__empty', {
+                width: '100%',
+                height: '100px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
+                color: Theme['--ti-color-gray-400']
+              })
+            ]
+          )
         ]
       )
     ]

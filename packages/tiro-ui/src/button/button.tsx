@@ -1,11 +1,7 @@
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import type { PropType } from 'vue'
 import { ExtractPublicPropTypes, ComponentType, ComponentSize } from '../_utils'
 import style from './style/index.cssr'
-
-style.mount({
-  id: 'ti-button'
-})
 
 const props = {
   size: {
@@ -53,6 +49,13 @@ const Button = defineComponent({
   setup(props, { slots }) {
     const { disabled, size, type, dashed, fill, text, circle, plain, round } =
       props
+
+    onMounted(() => {
+      style.mount({
+        id: 'ti-button'
+      })
+    })
+
     return () => (
       <button
         disabled={disabled}

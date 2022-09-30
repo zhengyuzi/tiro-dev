@@ -10,11 +10,9 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "vitepress": "^1.0.0-alpha.14"
-  },
   "dependencies": {
     "@tiro/ui": "workspace:^1.0.0",
-    "markdown-it-container": "^3.0.0"
+    "markdown-it-container": "^3.0.0",
+    "vitepress": "^1.0.0-alpha.17"
   }
 }

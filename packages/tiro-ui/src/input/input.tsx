@@ -1,11 +1,7 @@
-import { defineComponent, ref } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import type { PropType, Component, VNode, Ref } from 'vue'
 import { ExtractPublicPropTypes } from '../_utils'
 import style from './style/index.cssr'
-
-style.mount({
-  id: 'ti-input'
-})
 
 const props = {
   disabled: {
@@ -71,6 +67,12 @@ export type InputProps = ExtractPublicPropTypes<typeof props>
 const Button = defineComponent({
   props,
   setup(props, { emit, expose }) {
+    onMounted(() => {
+      style.mount({
+        id: 'ti-input'
+      })
+    })
+
     const {
       disabled,
       size,
@@ -114,15 +116,18 @@ const Button = defineComponent({
       emit('change', h?.value)
     }
 
-    const handlePassword = (e: Event) => {
-      e.preventDefault()
+    const handlePassword = () => {
       isPassword.value = !isPassword.value
     }
 
-    const handleClear = (e: Event) => {
-      e.preventDefault()
+    const handleClear = () => {
       emit('update:modelValue', '')
       emit('clear')
+    }
+
+    const handleFix = (e: Event) => {
+      e.preventDefault()
+      Input.value.focus()
     }
 
     const focus = () => {
@@ -153,7 +158,7 @@ const Button = defineComponent({
         ]}
       >
         <div class={['ti-input__wrapper', `is-style-type-${styleType}`]}>
-          <div class="ti-input__prefix">
+          <div class="ti-input__prefix" onMousedown={handleFix}>
             {prefixIcon && <div class="prefix-icon">{prefixIcon}</div>}
           </div>
           <input
@@ -174,7 +179,7 @@ const Button = defineComponent({
             onBlur={handleBlur}
             onChange={handleChange}
           />
-          <div class="ti-input__suffix">
+          <div class="ti-input__suffix" onMousedown={handleFix}>
             {suffixIcon && <div class="suffix-icon">{suffixIcon}</div>}
             {clearable && props.modelValue && (
               <div class="clearable" onMousedown={handleClear}>

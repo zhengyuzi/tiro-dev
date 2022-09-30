@@ -228,14 +228,14 @@ const Ashbin = h(TiIcon, { name: 'ti-icon-ashbin', size: 20, color: '#aaa' })
 | 属性名  | 说明  | 类型 | 可选值 | 默认值 |
 | :----: | :----: | :----: | :----: | :----: |
 | type  | input类型 | string | `text` , `password` | `text` |
-| size  | input大小 | string | `large` , `default` , `small` | `default` |
+| size  | input大小 | string | `large` , `medium` , `small` | `medium` |
 | v-model | 绑定值 | string / number | —— | —— |
 | placeholder | 占位符 | string | —— | 请输入内容 |
 | disabled | 是否禁用 | boolean | —— | false |
 | clearable | 是否可清空 | boolean | —— | false |
 | show-password | 是否显示切换密码图标 | boolean | —— | true |
 | show-word-limit | 是否显示限制文本长度 | boolean | —— | false |
-| style-type | 颜色主题 | string | `default` , `success` , `info` , `danger` , `warning` | `default` |
+| style-type | 颜色主题 | string | `default` , `success` , `info` , `danger` , `warning`, `bright` | `default` |
 | prefixIcon | 前置图标 | Component , VNode | —— | —— |
 | suffixIcon | 后置图标 | Component , VNode | —— | —— |
 | name | 原生属性name | string | —— | —— |
@@ -250,8 +250,8 @@ const Ashbin = h(TiIcon, { name: 'ti-icon-ashbin', size: 20, color: '#aaa' })
 
 | 事件名  | 说明  | 参数 |
 | :----: | :----: | :----: |
-| input | 输入时值发生改变时 | (value: string | number) |
-| change | 当输入框失去焦点或按下回车时触发 | (value: string | number) |
+| input | 输入时值发生改变时 | (value: string \| number) |
+| change | 当输入框失去焦点或按下回车时触发 | (value: string \| number) |
 | focus | 在 Input 获得焦点时触发 | (event: Event) |
 | blur | 在 Input 失去焦点时触发 | (event: Event) |
 | clear | 点击清空图标时触发 | —— |

@@ -30,7 +30,10 @@ const renderType = ThemeType.map((type) => {
         border: `1px solid ${Theme['--ti-color-gray-200']}`,
         position: 'absolute',
         borderRadius: '3px',
-        inset: 0
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0
       }),
       c(
         '&:hover:not(.is-disabled):not(.is-dashed), &:focus:not(.is-disabled):not(.is-dashed)',
@@ -61,7 +64,10 @@ const renderType = ThemeType.map((type) => {
             borderColor: Theme[color],
             position: 'absolute',
             borderRadius: '3px',
-            inset: 0
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0
           }),
           c('&:hover, &:focus', [
             c('&:after', {
