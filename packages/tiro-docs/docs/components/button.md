@@ -1,7 +1,3 @@
-<script setup lang="ts">
-
-</script>
-
 <style lang="scss" scoped>
 .example-button {
     display: flex;

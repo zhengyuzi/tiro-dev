@@ -40,14 +40,16 @@ export default defineConfig({
           text: '基础组件',
           items: [
             { text: 'Icon 图标', link: '/components/icon' },
-            { text: 'Button 按钮', link: '/components/button' }
+            { text: 'Button 按钮', link: '/components/button' },
+            { text: 'Card 卡片', link: '/components/card' }
           ]
         },
         {
           text: '表单组件',
           items: [
             { text: 'Input 输入框', link: '/components/input' },
-            { text: 'Select 选择器', link: '/components/select' }
+            { text: 'Select 选择器', link: '/components/select' },
+            { text: 'Radio 单选', link: '/components/radio' }
           ]
         }
       ]

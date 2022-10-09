@@ -1,10 +1,5 @@
 import { c, cB, cE, cM } from '../../_minxin/cssr'
-import {
-  Theme,
-  TiScrollbar,
-  ThemeType,
-  ThemeSize
-} from '../../../theme-chalk/index'
+import { Theme, ThemeType, ThemeSize } from '../../../theme-chalk/index'
 
 const selectHeight = {
   small: '30px',

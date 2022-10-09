@@ -6,17 +6,37 @@ export default c([
     'card',
     {
       width: '100%',
-      border: `1px solid ${Theme['--ti-color-gray-200']}`,
       borderRadius: Theme['--ti-border-radius']
     },
     [
+      cM(
+        'bordered',
+        {
+          border: `1px solid ${Theme['--ti-color-gray-200']}`
+        },
+        [
+          cE('header', {
+            borderBottom: `1px solid ${Theme['--ti-color-gray-200']}`
+          })
+        ]
+      ),
+      cE('header, body', {
+        padding: '12px 15px'
+      }),
       cE('header', {
-        padding: '10px',
-        borderBottom: `1px solid ${Theme['--ti-color-gray-200']}`
+        fontSize: '16px'
       }),
       cE('body', {
-        padding: '10px'
-      })
+        fontSize: '14px'
+      }),
+      c('&.is-always', {
+        boxShadow: Theme['--ti-box-shadow-light']
+      }),
+      c('&.is-hover', [
+        c('&:hover', {
+          boxShadow: Theme['--ti-box-shadow-light']
+        })
+      ])
     ]
   )
 ])

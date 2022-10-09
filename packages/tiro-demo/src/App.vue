@@ -1,60 +1,17 @@
 <script setup lang="ts">
 import { h, ref, watchEffect } from 'vue'
-import { TiSelect, TiButton, TiCard } from '@tiro/ui'
+import { TiSelect, TiButton, TiCard, TiRadio, TiRadioGroup } from '@tiro/ui'
 
-const options = [
-  {
-    label: 'Drive',
-    value: 'song1'
-  },
-  {
-    label: 'Wood',
-    value: 'song2'
-  },
-  {
-    label: 'You',
-    value: 'song3',
-    disabled: true
-  },
-  {
-    label: 'Man',
-    value: 'song4'
-  },
-  {
-    label: 'Think For Yourself',
-    value: 'song5'
-  },
-  {
-    label: 'The Word',
-    value: 'song6'
-  },
-  {
-    label: 'Think For Yourself',
-    value: 'song7'
-  },
-  {
-    label: 'The Word',
-    value: 'song8'
-  },
-  {
-    label: 'Think For Yourself',
-    value: 'song9'
-  },
-  {
-    label: 'The Word',
-    value: 'song10'
-  }
-]
+const radio1 = ref('1')
 </script>
 
 <template>
   <div class="example">
-    <ti-card style="width: 200px">
-      <template #header>
-        <div class="card-header">header</div>
-      </template>
-      1111
-    </ti-card>
+    <ti-radio-group v-model="radio1" name="demo2" type="success">
+      <ti-radio value="1"> Definitely Maybe </ti-radio>
+      <ti-radio disabled>Definitely Maybe</ti-radio>
+      <ti-radio value="3"> Definitely Maybe </ti-radio>
+    </ti-radio-group>
   </div>
 </template>
 
