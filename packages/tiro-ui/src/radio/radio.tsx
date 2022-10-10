@@ -1,4 +1,4 @@
-import { defineComponent, inject, onMounted, PropType, ref } from 'vue'
+import { defineComponent, inject, onMounted, PropType } from 'vue'
 import { ComponentSize, ComponentType, ExtractPublicPropTypes } from '../_utils'
 import style from './style/index.cssr'
 
@@ -24,13 +24,13 @@ export type TRadioInject = {
   disabled: boolean
   name: string
   type: ComponentType
-  value: string | number
+  value: string | number | boolean | undefined
   Change: ((value: string | number | boolean) => void) | null
 }
 
 const Radio = defineComponent({
   props,
-  setup(props, { slots, emit }) {
+  setup(props, { slots }) {
     onMounted(() => {
       style.mount({
         id: 'ti-radio'
@@ -42,7 +42,7 @@ const Radio = defineComponent({
       type: 'default',
       disabled: false,
       name: '',
-      value: '',
+      value: undefined,
       Change: null
     })
 

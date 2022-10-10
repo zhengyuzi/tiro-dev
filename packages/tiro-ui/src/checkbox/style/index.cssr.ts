@@ -7,15 +7,32 @@ const fontSize = {
   large: '18px'
 }
 
+const checkScale = {
+  small: '0.7',
+  medium: '0.8',
+  large: '0.9'
+}
+
 const handleSize = ThemeSize.map((item) => {
   return c(`&.is-${item}`, [
     cE('text', {
       fontSize: fontSize[item]
     }),
-    cE('circle', {
+    cE('inner', {
       width: fontSize[item],
       height: fontSize[item]
-    })
+    }),
+    cE('input', {}, [
+      c('&:checked', [
+        c('~', [
+          cE('inner', [
+            c('&:after', {
+              transform: `translate(-50%,-50%) scale(${checkScale[item]})`
+            })
+          ])
+        ])
+      ])
+    ])
   ])
 })
 
@@ -25,24 +42,16 @@ const handleType = ThemeType.map((item) => {
     cE('input', {}, [
       c('&:checked', [
         c('~', [
-          cE(
-            'circle',
-            {
-              borderWidth: '2px',
-              borderColor: Theme[$color]
-            },
-            [
-              c('&:after', {
-                transform: 'translate(-50%,-50%) scale(1)',
-                backgroundColor: Theme[$color]
-              })
-            ]
-          )
+          cE('inner', {
+            borderWidth: '2px',
+            borderColor: Theme[$color],
+            backgroundColor: Theme[$color]
+          })
         ])
       ])
     ]),
     c('&:not(.is-disabled):hover', [
-      cE('circle', {
+      cE('inner', {
         borderWidth: '2px',
         borderColor: Theme[$color]
       })
@@ -52,7 +61,7 @@ const handleType = ThemeType.map((item) => {
 
 export default c([
   cB(
-    'radio',
+    'checkbox',
     {
       cursor: 'pointer',
       display: 'inline-flex',
@@ -73,7 +82,7 @@ export default c([
           cE('input', {
             pointerEvents: 'none'
           }),
-          cE('circle', {
+          cE('inner', {
             borderColor: `${Theme['--ti-color-gray-200']} !important`
           }),
           cE('text', {
@@ -82,23 +91,26 @@ export default c([
         ]
       ),
       cE('input', {
-        cursor: 'pointer',
+        opacity: 0,
+        outline: 'none',
         position: 'absolute',
-        border: 0,
-        opacity: 0
+        margin: 0,
+        width: 0,
+        height: 0,
+        zIndex: -1
       }),
       cE('text', {
         color: Theme['--ti-color-gray-600'],
         userSelect: 'none',
-        padding: '0px 8px'
+        padding: '0px 8px',
+        display: 'inline-block'
       }),
       cE(
-        'circle',
+        'inner',
         {
           position: 'relative',
           boxSizing: 'border-box',
-          border: `1px solid ${Theme['--ti-color-gray-300']}`,
-          borderRadius: Theme['--ti-border-radius-circle']
+          border: `1px solid ${Theme['--ti-color-gray-300']}`
         },
         [
           c('&:after', {
@@ -110,7 +122,7 @@ export default c([
             left: '50%',
             transform: 'translate(-50%,-50%) scale(0)',
             textAlign: 'center',
-            borderRadius: Theme['--ti-border-radius-circle'],
+            backgroundColor: 'white',
             transition: 'transform .03s ease-in .03s',
             transformOrigin: 'center'
           })

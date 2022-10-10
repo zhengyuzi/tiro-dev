@@ -179,6 +179,6 @@ const isChecked = ref('value1')
 
 | 事件名  | 说明  | 参数 |
 | :----: | :----: | :----: |
-| change | 选中状态变化时触发的事件 | (e: Event) |
+| update:model-value | 选中状态变化时触发的事件 | (value: string \| number \| boolean) |
 
 :::

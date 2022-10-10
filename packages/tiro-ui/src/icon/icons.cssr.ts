@@ -54,11 +54,11 @@ const icons = [
     code: '\\e68f'
   },
   {
-    name: 'zoom-in',
+    name: 'zoom-out',
     code: '\\e690'
   },
   {
-    name: 'zoom-out',
+    name: 'zoom-in',
     code: '\\e691'
   },
   {
@@ -212,12 +212,18 @@ const icons = [
   {
     name: 'empty',
     code: '\\e65e'
+  },
+  {
+    name: 'restore',
+    code: '\\ea6b'
   }
 ]
 
 const fontFace = c('@font-face', {
   fontFamily: 'ti',
-  src: `url('//at.alicdn.com/t/c/font_3658387_8o9o9zpjqx4.woff2?t=1664438422876') format('woff2'),  url('//at.alicdn.com/t/c/font_3658387_8o9o9zpjqx4.woff?t=1664438422876') format('woff'), url('//at.alicdn.com/t/c/font_3658387_8o9o9zpjqx4.ttf?t=1664438422876') format('truetype');
+  src: `url('//at.alicdn.com/t/c/font_3658387_1i6tevohnew.woff2?t=1665390206227') format('woff2'),
+  url('//at.alicdn.com/t/c/font_3658387_1i6tevohnew.woff?t=1665390206227') format('woff'),
+  url('//at.alicdn.com/t/c/font_3658387_1i6tevohnew.ttf?t=1665390206227') format('truetype');
   `
 })
 

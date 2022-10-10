@@ -49,8 +49,13 @@ export default defineConfig({
           items: [
             { text: 'Input 输入框', link: '/components/input' },
             { text: 'Select 选择器', link: '/components/select' },
-            { text: 'Radio 单选', link: '/components/radio' }
+            { text: 'Radio 单选', link: '/components/radio' },
+            { text: 'Checkbox 复选框', link: '/components/checkbox' }
           ]
+        },
+        {
+          text: '数据展示组件',
+          items: [{ text: 'Image 图片', link: '/components/image' }]
         }
       ]
     },

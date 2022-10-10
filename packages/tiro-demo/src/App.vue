@@ -1,17 +1,25 @@
 <script setup lang="ts">
 import { h, ref, watchEffect } from 'vue'
-import { TiSelect, TiButton, TiCard, TiRadio, TiRadioGroup } from '@tiro/ui'
-
-const radio1 = ref('1')
+import {
+  TiSelect,
+  TiButton,
+  TiCard,
+  TiRadio,
+  TiRadioGroup,
+  TiCheckbox,
+  TiCheckboxGroup,
+  TiImage
+} from '@tiro/ui'
 </script>
 
 <template>
   <div class="example">
-    <ti-radio-group v-model="radio1" name="demo2" type="success">
-      <ti-radio value="1"> Definitely Maybe </ti-radio>
-      <ti-radio disabled>Definitely Maybe</ti-radio>
-      <ti-radio value="3"> Definitely Maybe </ti-radio>
-    </ti-radio-group>
+    <ti-image
+      src="https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg"
+      style="width: 100px; height: 100px"
+      fit="cover"
+      preview
+    />
   </div>
 </template>
 

@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, PropType, provide } from 'vue'
+import { defineComponent, PropType, provide } from 'vue'
 import { ComponentSize, ComponentType, ExtractPublicPropTypes } from '../_utils'
 
 const props = {
