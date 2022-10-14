@@ -80,9 +80,14 @@ importers:
   packages/tiro-ui:
     specifiers:
       '@css-render/plugin-bem': ^0.15.11
+      '@types/lodash': ^4.14.186
       css-render: ^0.15.11
+      lodash: ^4.17.21
+    dependencies:
+      lodash: 4.17.21
     devDependencies:
       '@css-render/plugin-bem': 0.15.11_css-render@0.15.11
+      '@types/lodash': 4.14.186
       css-render: 0.15.11
 
 packages:
@@ -912,6 +917,10 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/lodash/4.14.186:
+    resolution: {integrity: sha512-eHcVlLXP0c2FlMPm56ITode2AgLMSa6aJ05JTTbYbI+7EMkCEE5qk2E41d5g2lCVTqRe0GnnRFurmlCsDODrPw==}
     dev: true
 
   /@types/minimist/1.2.2:
@@ -2941,7 +2950,6 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols/4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}

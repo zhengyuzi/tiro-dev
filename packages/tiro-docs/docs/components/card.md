@@ -157,6 +157,8 @@
 | :----: | :----: |
 | header | card标题 |
 
+:::
+
 ## 属性
 ::: table
 
@@ -166,3 +168,5 @@
 | header-style | 自定义card头部样式 | string | —— | —— |
 | bordered | 是否有边框 | boolean | —— | true |
 | shadow | 是否悬浮 | string | `null`  `always`  `hover` | `null` |
+
+:::

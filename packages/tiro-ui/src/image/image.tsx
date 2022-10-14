@@ -9,151 +9,119 @@ import {
 } from 'vue'
 import { ExtractPublicPropTypes } from '../_utils'
 import style from './style/index.cssr'
-import { TiIcon } from '../icon'
+import { lazy } from '../_directives'
+import ImagePreview from './image-preview'
+
+interface IntersectionObserverOptions {
+  root?: Element | Document | string | null
+}
 
 const props = {
   src: String,
   fit: String as PropType<'fill' | 'contain' | 'cover' | 'none' | 'scale-down'>,
   alt: String,
-  referrerPolicy: String,
-  preview: Boolean
+  preview: Boolean,
+  closeOnPressEscape: {
+    type: Boolean,
+    default: true
+  },
+  zIndex: Number,
+  lazy: Boolean,
+  intersectionObserverOptions: Object as PropType<IntersectionObserverOptions>
 }
 
 export type ImageProps = ExtractPublicPropTypes<typeof props>
 
 const Image = defineComponent({
+  directives: {
+    lazy
+  },
+  components: {
+    ImagePreview
+  },
   props,
   setup(props, { emit, slots }) {
+    const imageSrc: Ref<string | undefined> = ref()
+    const isError = ref(false)
+    const isLoad = ref(false)
+    const isPreview = ref(false)
+    const image = ref(null) as unknown as Ref<HTMLImageElement>
+
     onMounted(() => {
       style.mount({
         id: 'ti-image'
       })
+      if (!props.lazy) {
+        loadImage()
+      }
     })
 
-    const isLoad = ref(true)
-    const isPreview = ref(false)
-    const toolbar = ref(null) as unknown as Ref<HTMLElement>
-    const previewImg = ref(null) as unknown as Ref<HTMLImageElement>
-    const rotate = ref(0)
-    const scale = ref(1)
+    const loadImage = () => {
+      imageSrc.value = props.src
+    }
 
-    const handleLoad = (e: Event) => {
+    const handleLoad = (e?: Event) => {
+      isLoad.value = true
       emit('load', e)
     }
 
     const handleError = (e: Event) => {
-      isLoad.value = false
+      isError.value = true
       emit('error', e)
     }
 
     const handleClick = () => {
       if (!props.preview) return
       isPreview.value = true
+      emit('preview-open')
     }
 
-    const handleToolbar = (e: Event) => {
-      const target = e.target as never
-      const index = [].indexOf.call(toolbar.value.children, target)
-      Toolbar[index] && Toolbar[index]()
-      previewImgTrans()
-    }
-
-    const zoomIn = () => {
-      // 放大
-      if (scale.value + 0.4 > 2) return
-      scale.value += 0.4
-    }
-
-    const zoomOut = () => {
-      // 缩小
-      if (scale.value - 0.4 < 0) return
-      scale.value -= 0.4
-    }
-
-    const restore = () => {
-      // 还原
-      if (scale.value !== 1) scale.value = 1
-    }
-
-    const rotateLeft = () => {
-      // 逆时针旋转
-      rotate.value -= 90
-    }
-
-    const rotateRight = () => {
-      // 逆时针旋转
-      rotate.value += 90
-    }
-
-    const closePreview = () => {
-      // 关闭
+    const handlePreview = () => {
       isPreview.value = false
-      scale.value = 1
-      rotate.value = 0
+      emit('preview-close')
     }
-
-    const previewImgTrans = () => {
-      previewImg.value.style.transform = `scale(${scale.value}) rotate(${rotate.value}deg)`
-    }
-
-    const Toolbar = [
-      zoomIn,
-      zoomOut,
-      restore,
-      rotateLeft,
-      rotateRight,
-      closePreview
-    ]
 
     return () => (
-      <div class="ti-image" onClick={handleClick}>
-        {isLoad.value ? (
-          <img
-            class={['ti-image__inner', props.preview ? 'is-preview' : '']}
-            src={props.src}
-            alt={props.alt}
-            referrer-policy={props.referrerPolicy}
-            style={{ objectFit: props.fit }}
-            onLoad={handleLoad}
-            onError={handleError}
-          />
-        ) : (
+      <div class="ti-image">
+        <img
+          ref={image}
+          v-show={!isError.value}
+          class={['ti-image__inner', props.preview ? 'is-preview' : '']}
+          alt={props.alt}
+          src={imageSrc.value}
+          style={{ objectFit: props.fit }}
+          onLoad={handleLoad}
+          onError={handleError}
+          onClick={handleClick}
+          v-lazy={{
+            isLazy: props.lazy,
+            root: props.intersectionObserverOptions?.root,
+            src: props.src
+          }}
+        />
+        {!isLoad.value && !isError.value && (
+          <div class="ti-image__loading">
+            {slots.loading ? slots.loading() : null}
+          </div>
+        )}
+        {isError.value && (
           <div class="ti-image__error">
             {slots.error ? slots.error() : '加载失败'}
           </div>
         )}
-        {isPreview.value && (
-          <Teleport to="body">
-            <div class="ti-image__preview">
-              <div class="ti-image__preview__mask"></div>
-              <div class="ti-image__preview__inner">
-                <img
-                  class="ti-image__preview__img"
-                  ref={previewImg}
-                  src={props.src}
-                  alt={props.alt}
-                />
-              </div>
-              <div class="ti-image__preview__toolbar">
-                <div
-                  class="ti-image__preview__toolbar__inner"
-                  ref={toolbar}
-                  onClick={handleToolbar}
-                >
-                  <TiIcon name="ti-icon-zoom-in" />
-                  <TiIcon name="ti-icon-zoom-out" />
-                  <TiIcon name="ti-icon-restore" />
-                  <TiIcon
-                    name="ti-icon-refresh"
-                    style={{ transform: 'rotateY(180deg)' }}
-                  />
-                  <TiIcon name="ti-icon-refresh" />
-                  <TiIcon name="ti-icon-close" />
-                </div>
-              </div>
-            </div>
-          </Teleport>
-        )}
+        <Teleport to="body" disabled={!isPreview.value}>
+          <Transition name="ti-image-trans">
+            {isPreview.value && (
+              <image-preview
+                z-index={props.zIndex}
+                src={props.src}
+                alt={props.alt}
+                closeOnPressEscape={props.closeOnPressEscape}
+                onClosePreview={handlePreview}
+              />
+            )}
+          </Transition>
+        </Teleport>
       </div>
     )
   }
