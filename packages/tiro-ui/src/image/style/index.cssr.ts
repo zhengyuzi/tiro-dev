@@ -76,7 +76,6 @@ export default c([
           width: '100%',
           height: '100%',
           position: 'absolute',
-          zIndex: Theme['--ti-z-index-2001'],
           left: 0,
           top: 0,
           right: 0,
@@ -99,7 +98,6 @@ export default c([
         'toolbar',
         {
           position: 'absolute',
-          zIndex: Theme['--ti-z-index-2002'],
           bottom: '8%',
           width: '230px',
           height: '45px',

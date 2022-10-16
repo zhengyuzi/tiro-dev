@@ -35,6 +35,7 @@ const icons = [
 "ti-icon-code",
 "ti-icon-arrow-down",
 "ti-icon-ashbin",
+"ti-icon-arrow-left",
 "ti-icon-arrow-right",
 "ti-icon-eye",
 "ti-icon-bottom",

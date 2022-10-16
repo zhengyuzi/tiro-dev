@@ -216,14 +216,18 @@ const icons = [
   {
     name: 'restore',
     code: '\\ea6b'
+  },
+  {
+    name: 'arrow-left',
+    code: '\\ea6c'
   }
 ]
 
 const fontFace = c('@font-face', {
   fontFamily: 'ti',
-  src: `url('//at.alicdn.com/t/c/font_3658387_1i6tevohnew.woff2?t=1665390206227') format('woff2'),
-  url('//at.alicdn.com/t/c/font_3658387_1i6tevohnew.woff?t=1665390206227') format('woff'),
-  url('//at.alicdn.com/t/c/font_3658387_1i6tevohnew.ttf?t=1665390206227') format('truetype');
+  src: `url('//at.alicdn.com/t/c/font_3658387_uybxdd2huoq.woff2?t=1665900030179') format('woff2'),
+  url('//at.alicdn.com/t/c/font_3658387_uybxdd2huoq.woff?t=1665900030179') format('woff'),
+  url('//at.alicdn.com/t/c/font_3658387_uybxdd2huoq.ttf?t=1665900030179') format('truetype');
   `
 })
 
