@@ -20,9 +20,12 @@ const imgList = [
 <template>
   <div class="example">
     <div>
-      <ti-carousel style="width: 800px" autoplay>
+      <ti-carousel style="width: 400px; height: 250px" show-arrow>
         <ti-carousel-item v-for="item in imgList" :key="item.src">
-          <img :src="item.src" style="height: 400px; object-fit: cover" />
+          <img
+            :src="item.src"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
         </ti-carousel-item>
       </ti-carousel>
     </div>

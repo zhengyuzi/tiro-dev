@@ -7,6 +7,11 @@ const dot = {
   active: 'rgba(255, 255, 255, 1)'
 }
 
+const line = {
+  width: '4px',
+  height: '18px'
+}
+
 const arrow = {
   size: '35px',
   color: 'rgba(255, 255, 255, 1)',
@@ -26,6 +31,11 @@ export default c([
       boxSizing: 'border-box'
     },
     [
+      c('&.is-vertical', [
+        cE('inner', {
+          flexDirection: 'column'
+        })
+      ]),
       cE('inner', {
         width: '100%',
         height: '100%',
@@ -34,20 +44,25 @@ export default c([
       cE(
         'dots',
         {
-          width: '100%',
           position: 'absolute',
-          bottom: '6%',
-          display: 'flex',
-          justifyContent: 'center'
+          display: 'flex'
         },
         [
+          c('&.is-dot', [
+            cE('dot', {
+              width: dot.size,
+              height: dot.size,
+              borderRadius: Theme['--ti-border-radius-circle']
+            })
+          ]),
+          c('&.is-line', [
+            cE('dot', {
+              borderRadius: Theme['--ti-border-radius-middle']
+            })
+          ]),
           cE(
             'dot',
             {
-              margin: '0px 3px',
-              width: dot.size,
-              height: dot.size,
-              borderRadius: Theme['--ti-border-radius-circle'],
               backgroundColor: dot.color,
               cursor: 'pointer'
             },
@@ -56,10 +71,60 @@ export default c([
                 backgroundColor: dot.active
               })
             ]
-          )
+          ),
+          c(
+            '&.is-bottom, &.is-top',
+            {
+              width: '100%',
+              justifyContent: 'center'
+            },
+            [
+              cE('dot', {
+                margin: '0px 3px'
+              }),
+              c('&.is-line', [
+                cE('dot', {
+                  width: line.height,
+                  height: line.width
+                })
+              ])
+            ]
+          ),
+          c('&.is-bottom', {
+            bottom: '6%'
+          }),
+          c('&.is-top', {
+            top: '6%'
+          }),
+          c(
+            '&.is-right, &.is-left',
+            {
+              flexDirection: 'column',
+              top: '50%',
+              transform: 'translateY(-50%)'
+            },
+            [
+              cE('dot', {
+                margin: '3px 0px',
+                alignSelf: 'baseline'
+              }),
+              c('&.is-line', [
+                cE('dot', {
+                  width: line.width,
+                  height: line.height
+                })
+              ])
+            ]
+          ),
+          c('&.is-right', {
+            right: '4%'
+          }),
+          c('&.is-left', {
+            left: '4%'
+          })
         ]
       ),
-      c('&:hover', [
+      c('&.is-show-arrow:not(.is-vertical):hover', [
         cE('arrows', {
           visibility: 'visible',
           opacity: 1

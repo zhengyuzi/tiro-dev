@@ -9,6 +9,5 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     TiCarousel: typeof import('@tiro/ui')['TiCarousel']
     TiCarouselItem: typeof import('@tiro/ui')['TiCarouselItem']
-    TiImage: typeof import('@tiro/ui')['TiImage']
   }
 }

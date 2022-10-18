@@ -12,10 +12,6 @@ import style from './style/index.cssr'
 import { lazy } from '../_directives'
 import ImagePreview from './image-preview'
 
-interface IntersectionObserverOptions {
-  root?: Element | Document | string | null
-}
-
 const props = {
   src: String,
   fit: String as PropType<'fill' | 'contain' | 'cover' | 'none' | 'scale-down'>,
@@ -26,8 +22,7 @@ const props = {
     default: true
   },
   zIndex: Number,
-  lazy: Boolean,
-  intersectionObserverOptions: Object as PropType<IntersectionObserverOptions>
+  lazy: Boolean
 }
 
 export type ImageProps = ExtractPublicPropTypes<typeof props>
@@ -95,7 +90,6 @@ const Image = defineComponent({
           onClick={handleClick}
           v-lazy={{
             isLazy: props.lazy,
-            root: props.intersectionObserverOptions?.root,
             src: props.src
           }}
         />

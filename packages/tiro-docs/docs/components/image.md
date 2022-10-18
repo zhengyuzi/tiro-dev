@@ -186,7 +186,7 @@ const imgList = [
 
 ## 懒加载
 ::: show
-<div id="example-lazy-box" style="overflow: auto; height: 300px; width: 100%">
+<div style="overflow: auto; height: 300px; width: 100%">
 <ti-image
   v-for="item in imgList"
   :key="item.src"
@@ -194,15 +194,12 @@ const imgList = [
   style="width: 100%"
   fit="cover"
   lazy
-  :intersection-observer-options="{
-    root: '#example-lazy-box'
-  }"
 />
 </div>
 
 ``` vue
 <template>
-  <div id="example-lazy-box" style="overflow: auto; height: 300px; width: 100%">
+  <div style="overflow: auto; height: 300px; width: 100%">
     <ti-image
       v-for="item in imgList"
       :key="item.src"
@@ -210,9 +207,6 @@ const imgList = [
       style="width: 100%"
       fit="cover"
       lazy
-      :intersection-observer-options="{
-        root: '#example-lazy-box'
-      }"
     />
   </div>
 </template>
@@ -229,8 +223,7 @@ const imgList = [
 | alt | 同原生 alt | string | —— | —— |
 | fit | 同原生 object-fit | string | fill \| contain \| cover \| none \| scale-down | —— |
 | preview | 图片预览 | boolean | —— | false |
-| lazy | 是否开启懒加载, 需配合intersection-observer-options使用 | boolean | —— | false |
-| intersection-observer-options | 懒加载配置，指定有滚动条的父元素 | \{ root?: Element \| Document \| string \| null \} | —— | —— |
+| lazy | 是否开启懒加载 | boolean | —— | false |
 | close-on-press-escape | 是否可以通过按下 ESC 关闭  | boolean | —— | true |
 | z-index | 设置图片预览的 z-index	 | number | —— | 2000 |
 
