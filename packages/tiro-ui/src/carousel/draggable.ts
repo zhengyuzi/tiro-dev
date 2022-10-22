@@ -6,6 +6,7 @@ interface IBinding {
     next: Function
     direction: 'horizontal' | 'vertical'
     isDraggable: boolean
+    isSlide: string
   }
 }
 
@@ -22,7 +23,13 @@ export const draggable = {
 
       // true-横向 false-竖向
       const isHorizontal = binding.value.direction === 'horizontal'
-      const transEl = getTransform(el)
+      const transEl =
+        binding.value.isSlide === 'slide'
+          ? getTransform(el)
+          : {
+              transX: el.offsetLeft,
+              transY: el.offsetTop
+            }
 
       const diff = isHorizontal
         ? e.clientX - transEl.transX
@@ -44,10 +51,12 @@ export const draggable = {
       }
 
       function handleMove(duration: number, translate: number) {
-        el.style.transitionDuration = `${duration}ms`
-        el.style.transform = isHorizontal
-          ? `translateX(${translate}px)`
-          : `translateY(${translate}px)`
+        if (binding.value.isSlide === 'slide') {
+          el.style.transitionDuration = `${duration}ms`
+          el.style.transform = isHorizontal
+            ? `translateX(${translate}px)`
+            : `translateY(${translate}px)`
+        }
         isMove.value = true
       }
 

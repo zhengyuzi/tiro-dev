@@ -9,7 +9,8 @@ const dot = {
 
 const line = {
   width: '4px',
-  height: '18px'
+  height: '18px',
+  active: '26px'
 }
 
 const arrow = {
@@ -36,11 +37,59 @@ export default c([
           flexDirection: 'column'
         })
       ]),
-      cE('inner', {
-        width: '100%',
-        height: '100%',
-        display: 'flex'
-      }),
+      cE(
+        'inner',
+        {
+          width: '100%',
+          height: '100%',
+          display: 'flex'
+        },
+        [
+          cE('item', {
+            width: '100%',
+            height: '100%',
+            flexShrink: 0
+          }),
+          cE(
+            'item-inner',
+            {
+              width: '100%',
+              height: '100%',
+              flexShrink: 0
+            },
+            [
+              c('& > *', {
+                width: '100%'
+              })
+            ]
+          ),
+          c(
+            '&.is-fade',
+            {
+              position: 'relative'
+            },
+            [
+              cE(
+                'item',
+                {
+                  position: 'absolute'
+                },
+                [
+                  cE('item-inner', {
+                    opacity: 0
+                  }),
+                  c('&.is-active', [
+                    cE('item-inner', {
+                      transition: 'opacity 0.3s',
+                      opacity: 1
+                    })
+                  ])
+                ]
+              )
+            ]
+          )
+        ]
+      ),
       cE(
         'dots',
         {

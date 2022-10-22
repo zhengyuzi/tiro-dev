@@ -55,7 +55,10 @@ export default defineConfig({
         },
         {
           text: '数据展示组件',
-          items: [{ text: 'Image 图片', link: '/components/image' }]
+          items: [
+            { text: 'Image 图片', link: '/components/image' },
+            { text: 'Carousel 轮播图', link: '/components/carousel' }
+          ]
         }
       ]
     },

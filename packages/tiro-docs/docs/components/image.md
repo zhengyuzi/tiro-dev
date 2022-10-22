@@ -1,18 +1,16 @@
 <script setup>
-const Src = "https://pic.jitudisk.com/public/2022/10/13/6e80843c89569.jpg"
-
 const imgList = [
   {
-    src: Src
+    src: "http://1.15.247.77/api/image/demo_1.jpg"
   },
   {
-    src: "https://pic.jitudisk.com/public/2022/10/14/68ebefa9903f9.webp"
+    src: "http://1.15.247.77/api/image/demo.jpg"
   },
   {
-    src: "https://pic.jitudisk.com/public/2022/10/13/01b1e3acadfd2.webp"
+    src: "http://1.15.247.77/api/image/demo_2.jpg"
   },
   {
-    src: "https://pic.jitudisk.com/public/2022/10/13/20336a754d567.webp"
+    src: "http://1.15.247.77/api/image/demo_3.jpg"
   }
 ]
 </script>
@@ -40,7 +38,7 @@ const imgList = [
 <div class="ti-image-example">
   <div class="ti-image-example-item">
     <ti-image
-      :src="Src"
+      :src="imgList[0].src"
       style="width: 100px; height: 100px"
       fit="cover"
     />
@@ -48,7 +46,7 @@ const imgList = [
   </div>
   <div class="ti-image-example-item">
     <ti-image
-      :src="Src"
+      :src="imgList[0].src"
       style="width: 100px; height: 100px"
       fit="fill"
     />
@@ -56,7 +54,7 @@ const imgList = [
   </div>
   <div class="ti-image-example-item">
     <ti-image
-      :src="Src"
+      :src="imgList[0].src"
       style="width: 100px; height: 100px"
       fit="contain"
     />
@@ -64,7 +62,7 @@ const imgList = [
   </div>
   <div class="ti-image-example-item">
     <ti-image
-      :src="Src"
+      :src="imgList[0].src"
       style="width: 100px; height: 100px"
       fit="scale-down"
     />
@@ -72,7 +70,7 @@ const imgList = [
   </div>
   <div class="ti-image-example-item">
     <ti-image
-      :src="Src"
+      :src="imgList[0].src"
       style="width: 100px; height: 100px"
       fit="none"
     />
@@ -115,7 +113,7 @@ const imgList = [
 添加 `preview` 属性开启图片预览
 ::: show
 <ti-image
-  :src="Src"
+  :src="imgList[0].src"
   style="width: 100px; height: 100px"
   fit="cover"
   preview

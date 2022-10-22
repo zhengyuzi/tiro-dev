@@ -81,7 +81,7 @@ const Carousel = defineComponent({
     draggable
   },
   props,
-  setup(props, { slots, expose }) {
+  setup(props, { slots, emit, expose }) {
     const carouselInner = ref(null) as unknown as Ref<HTMLElement>
     const carouselItems = ref((slots.default as Slot)()[0].children as VNode[])
     const Index = ref(props.currentIndex)
@@ -100,7 +100,8 @@ const Carousel = defineComponent({
 
     const carouselInnerStyle = computed<CSSProperties>(() => {
       const transform = props.effect === 'slide' ? translate() : undefined
-      const transitionDuration = `${duration.value}ms`
+      const transitionDuration =
+        props.effect === 'slide' ? `${duration.value}ms` : undefined
       return {
         transform,
         transitionDuration
@@ -108,6 +109,7 @@ const Carousel = defineComponent({
     })
 
     const inDuration = async () => {
+      emit('change', Index.value)
       setDuration()
       await promiseTimeout(duration.value)
       clearDuration()
@@ -159,7 +161,8 @@ const Carousel = defineComponent({
     }
 
     const bindEvent = () => {
-      useResizeObserver(document.body, handleTranslate)
+      props.effect === 'slide' &&
+        useResizeObserver(document.body, handleTranslate)
       if (props.mousewheel) {
         // 监听鼠标滚轮
         ;['mousewheel', 'DOMMouseScroll'].map((item) => {
@@ -174,6 +177,7 @@ const Carousel = defineComponent({
     }
 
     const handleMousewheel = (event: Event) => {
+      event.preventDefault()
       const e = (event || window.event) as WheelEvent
       const isUp = e.deltaY ? e.deltaY < 0 : e.detail > 0
       isUp ? prev() : next()
@@ -245,19 +249,33 @@ const Carousel = defineComponent({
         ]}
       >
         <div
-          class="ti-carousel__inner"
+          class={['ti-carousel__inner', `is-${props.effect}`]}
           ref={carouselInner}
           style={carouselInnerStyle.value}
           v-draggable={{
             isDraggable: props.draggable,
             direction: props.direction,
             prev,
-            next
+            next,
+            isSlide: props.effect
           }}
         >
-          {carouselItems.value[carouselItems.value.length - 1]}
-          {slots.default && slots.default()}
-          {carouselItems.value[0]}
+          {props.effect === 'slide' &&
+            carouselItems.value[carouselItems.value.length - 1]}
+          {slots.default &&
+            carouselItems.value.map((slot, index) => {
+              return (
+                <div
+                  class={[
+                    'ti-carousel__item',
+                    index === isBoundary(Index.value) ? 'is-active' : ''
+                  ]}
+                >
+                  {slot}
+                </div>
+              )
+            })}
+          {props.effect === 'slide' && carouselItems.value[0]}
         </div>
         <div class="ti-carousel__arrows">
           <div class="ti-carousel__arrow" onClick={prev}>

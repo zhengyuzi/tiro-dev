@@ -1,16 +1,11 @@
-import { defineComponent, onMounted } from 'vue'
-import style from './style/index.cssr'
+import { defineComponent } from 'vue'
 
 const CarouselItem = defineComponent({
   setup(props, { slots }) {
-    onMounted(() => {
-      style.mount({
-        id: 'ti-carousel-item'
-      })
-    })
-
     return () => (
-      <div class="ti-carousel-item">{slots.default && slots.default()}</div>
+      <div class="ti-carousel__item-inner">
+        {slots.default && slots.default()}
+      </div>
     )
   }
 })
