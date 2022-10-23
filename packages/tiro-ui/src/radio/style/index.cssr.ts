@@ -57,7 +57,7 @@ export default c([
       cursor: 'pointer',
       display: 'inline-flex',
       alignItems: 'center',
-      margin: '0 5px',
+      margin: '0 8px',
       height: '32px'
     },
     [
@@ -89,8 +89,7 @@ export default c([
       }),
       cE('text', {
         color: Theme['--ti-color-gray-600'],
-        userSelect: 'none',
-        padding: '0px 8px'
+        userSelect: 'none'
       }),
       cE(
         'circle',
@@ -98,7 +97,8 @@ export default c([
           position: 'relative',
           boxSizing: 'border-box',
           border: `1px solid ${Theme['--ti-color-gray-300']}`,
-          borderRadius: Theme['--ti-border-radius-circle']
+          borderRadius: Theme['--ti-border-radius-circle'],
+          marginRight: '8px'
         },
         [
           c('&:after', {

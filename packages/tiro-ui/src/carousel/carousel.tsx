@@ -261,7 +261,9 @@ const Carousel = defineComponent({
           }}
         >
           {props.effect === 'slide' &&
-            carouselItems.value[carouselItems.value.length - 1]}
+            ((slots.default as Slot)()[0].children as VNode[])[
+              ((slots.default as Slot)()[0].children as VNode[]).length - 1
+            ]}
           {slots.default &&
             carouselItems.value.map((slot, index) => {
               return (
@@ -275,7 +277,8 @@ const Carousel = defineComponent({
                 </div>
               )
             })}
-          {props.effect === 'slide' && carouselItems.value[0]}
+          {props.effect === 'slide' &&
+            ((slots.default as Slot)()[0].children as VNode[])[0]}
         </div>
         <div class="ti-carousel__arrows">
           <div class="ti-carousel__arrow" onClick={prev}>
