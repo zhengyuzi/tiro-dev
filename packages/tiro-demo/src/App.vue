@@ -1,34 +1,21 @@
 <script setup lang="ts">
-import { h, ref, watchEffect } from 'vue'
+import { h, ref, watch } from 'vue'
 
-const imgList = [
-  {
-    src: 'https://pic.jitudisk.com/public/2022/10/13/6e80843c89569.jpg'
+const isChecked = ref()
+
+watch(
+  () => {
+    return isChecked.value
   },
-  {
-    src: 'https://pic.jitudisk.com/public/2022/10/14/68ebefa9903f9.webp'
-  },
-  {
-    src: 'https://pic.jitudisk.com/public/2022/10/13/01b1e3acadfd2.webp'
-  },
-  {
-    src: 'https://pic.jitudisk.com/public/2022/10/13/20336a754d567.webp'
+  (val) => {
+    console.log(val)
   }
-]
+)
 </script>
 
 <template>
   <div class="example">
-    <div>
-      <ti-carousel style="width: 400px; height: 250px" show-arrow draggable>
-        <ti-carousel-item v-for="item in imgList" :key="item.src">
-          <img
-            :src="item.src"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-        </ti-carousel-item>
-      </ti-carousel>
-    </div>
+    <ti-switch v-model="isChecked" type="bright"></ti-switch>
   </div>
 </template>
 
@@ -39,12 +26,12 @@ const imgList = [
   display: flex;
   justify-content: center;
   align-items: center;
-  // flex-direction: column;
-  // margin-top: 20%;
+  flex-direction: column;
+  //margin-top: 20%;
 
-  // & > * {
-  //   margin: 10px 0;
-  // }
+  & > * {
+    margin: 10px 0;
+  }
 
   .ti-image {
     display: block;

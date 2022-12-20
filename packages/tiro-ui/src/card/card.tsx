@@ -5,8 +5,8 @@ import style from './style/index.cssr'
 type CardShadow = 'always' | 'hover'
 
 const props = {
-  bodyStyle: Object,
-  headerStyle: Object,
+  bodyStyle: String,
+  headerStyle: String,
   bordered: {
     type: Boolean,
     default: true

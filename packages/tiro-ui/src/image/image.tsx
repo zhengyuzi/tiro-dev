@@ -78,21 +78,34 @@ const Image = defineComponent({
 
     return () => (
       <div class="ti-image">
-        <img
-          ref={image}
-          v-show={!isError.value}
-          class={['ti-image__inner', props.preview ? 'is-preview' : '']}
-          alt={props.alt}
-          src={imageSrc.value}
-          style={{ objectFit: props.fit }}
-          onLoad={handleLoad}
-          onError={handleError}
-          onClick={handleClick}
-          v-lazy={{
-            isLazy: props.lazy,
-            src: props.src
-          }}
-        />
+        {props.lazy ? (
+          <img
+            ref={image}
+            v-show={!isError.value}
+            class={['ti-image__inner', props.preview ? 'is-preview' : '']}
+            alt={props.alt}
+            style={{ objectFit: props.fit }}
+            onLoad={handleLoad}
+            onError={handleError}
+            onClick={handleClick}
+            v-lazy={{
+              isLazy: props.lazy,
+              src: props.src
+            }}
+          />
+        ) : (
+          <img
+            ref={image}
+            v-show={!isError.value}
+            class={['ti-image__inner', props.preview ? 'is-preview' : '']}
+            alt={props.alt}
+            src={imageSrc.value}
+            style={{ objectFit: props.fit }}
+            onLoad={handleLoad}
+            onError={handleError}
+            onClick={handleClick}
+          />
+        )}
         {!isLoad.value && !isError.value && (
           <div class="ti-image__loading">
             {slots.loading ? slots.loading() : null}
