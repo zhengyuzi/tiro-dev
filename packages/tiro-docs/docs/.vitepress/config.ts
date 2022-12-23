@@ -60,6 +60,10 @@ export default defineConfig({
             { text: 'Image 图片', link: '/components/image' },
             { text: 'Carousel 轮播图', link: '/components/carousel' }
           ]
+        },
+        {
+          text: '反馈组件',
+          items: [{ text: 'Message 信息', link: '/components/message' }]
         }
       ]
     },

@@ -2,6 +2,7 @@ import { defineComponent, onMounted, ref } from 'vue'
 import type { PropType, Component, VNode, Ref } from 'vue'
 import { ExtractPublicPropTypes } from '../_utils'
 import style from './style/index.cssr'
+import { TiIcon } from '../icon'
 
 const props = {
   disabled: {
@@ -183,7 +184,7 @@ const Button = defineComponent({
             {suffixIcon && <div class="suffix-icon">{suffixIcon}</div>}
             {clearable && props.modelValue && (
               <div class="clearable" onMousedown={handleClear}>
-                <i class="ti ti-icon-close"></i>
+                <TiIcon name="ti-icon-close" />
               </div>
             )}
             {showWordLimit && (
@@ -195,13 +196,10 @@ const Button = defineComponent({
             )}
             {showPassword && type === 'password' && props.modelValue && (
               <div onMousedown={handlePassword}>
-                <i
-                  class={[
-                    'ti',
-                    isPassword.value ? 'ti-icon-eye' : 'ti-icon-eye-close',
-                    'password'
-                  ]}
-                ></i>
+                <TiIcon
+                  class="password"
+                  name={isPassword.value ? 'ti-icon-eye' : 'ti-icon-eye-close'}
+                />
               </div>
             )}
           </div>

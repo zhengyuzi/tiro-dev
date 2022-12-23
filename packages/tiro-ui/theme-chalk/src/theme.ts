@@ -81,6 +81,7 @@ export const Theme = {
   '--ti-z-index-2000': 2000,
   '--ti-z-index-2001': 2001,
   '--ti-z-index-2002': 2002,
+  '--ti-z-index-6000': 6000,
 
   // box-shadow
   '--ti-box-shadow':

@@ -1,40 +1,52 @@
 <script setup lang="ts">
-import { h, ref, watch } from 'vue'
+import { TiMessage, TiIcon } from '@tiro/ui'
+import { h, ref } from 'vue'
 
-const isChecked = ref()
+const handleClick = () => {
+  TiMessage({
+    type: 'success',
+    message: 'Once upon a time you dressed so fine'
+  })
+}
 
-watch(
-  () => {
-    return isChecked.value
-  },
-  (val) => {
-    console.log(val)
-  }
-)
+const handleClick2 = () => {
+  TiMessage({
+    type: 'info',
+    message:
+      'If I were you, I will realize that I love you more than any other guy'
+  })
+}
+
+const handleClick3 = () => {
+  TiMessage({
+    message: '66666',
+    icon: () => h(TiIcon, { name: 'ti-icon-loading', size: 19 })
+  })
+}
+
+const handleClick4 = () => {
+  TiMessage({
+    message: '您尚未绑定手机号，可能会影响账号的正常使用，请立即进行绑定！',
+    type: 'error',
+    clearable: true
+  })
+}
+
+const value = ref('')
 </script>
 
 <template>
   <div class="example">
-    <ti-switch v-model="isChecked" type="bright"></ti-switch>
+    <ti-button @click="handleClick">click</ti-button>
+    <ti-button @click="handleClick2">click</ti-button>
+    <ti-button @click="handleClick3">click</ti-button>
+    <ti-button @click="handleClick4">click</ti-button>
   </div>
 </template>
 
-<style scoped lang="scss">
-.example {
-  width: 100%;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  //margin-top: 20%;
-
-  & > * {
-    margin: 10px 0;
-  }
-
-  .ti-image {
-    display: block;
-  }
+<style>
+body {
+  margin: 0;
+  padding: 0;
 }
 </style>

@@ -103,6 +103,7 @@ const value = ref(true)
 ``` vue
 <template>
   <ti-switch v-model="value" active-value="选中" inactive-value="未选中" />
+  {{ value }}
 </template>
 
 <script setup lang="ts">
