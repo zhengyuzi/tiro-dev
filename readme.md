@@ -3,3 +3,4 @@
 </p>
 
 <h1 align="center">Tiro UI</h1>
+<p align="center">A simple Vue3-based UI component library</p>
