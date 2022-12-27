@@ -1,5 +1,5 @@
 import { h, VNode } from 'vue'
-import Message from './message'
+import MessageTsx from './message'
 import { MessageType, renderer } from './methods'
 
 export interface IMessageOption {
@@ -10,13 +10,17 @@ export interface IMessageOption {
   icon?: () => VNode
 }
 
-export const TiMessage = ({
+export const Message = ({
   type,
   message,
   duration,
   clearable,
   icon
 }: IMessageOption) => {
-  const vnode = h(Message, { type, message, duration, clearable, icon })
+  const vnode = h(MessageTsx, { type, message, duration, clearable, icon })
   renderer({ vnode, duration })
 }
+
+export const TiMessage = Message
+
+export default Message

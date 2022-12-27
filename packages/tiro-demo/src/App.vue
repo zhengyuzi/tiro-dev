@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TiMessage, TiIcon } from '@tiro/ui'
+import { TiMessage, TiIcon, TiButton } from '@tiro/build'
 import { h, ref } from 'vue'
 
 const handleClick = () => {

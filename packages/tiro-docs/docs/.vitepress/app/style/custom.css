@@ -50,14 +50,14 @@
   --vp-c-indigo-dark: #1d2f3f;
   --vp-c-indigo-darker: #14212e;
 
-  --vp-c-green: #42b883;
-  --vp-c-green-light: #42d392;
-  --vp-c-green-lighter: #35eb9a;
-  --vp-c-green-dark: #33a06f;
-  --vp-c-green-darker: #155f3e;
-  --vp-c-green-dimm-1: rgba(66, 184, 131, 0.5);
-  --vp-c-green-dimm-2: rgba(66, 184, 131, 0.25);
-  --vp-c-green-dimm-3: rgba(66, 184, 131, 0.05);
+  --vp-c-green: rgb(37, 120, 181);
+  --vp-c-green-light: rgb(50, 137, 199);
+  --vp-c-green-lighter: rgb(61, 151, 216);
+  --vp-c-green-dark: rgb(28, 110, 168);
+  --vp-c-green-darker: rgb(20, 99, 156);
+  --vp-c-green-dimm-1: rgba(37, 120, 181, 0.5);
+  --vp-c-green-dimm-2: rgba(37, 120, 181, 0.25);
+  --vp-c-green-dimm-3: rgba(37, 120, 181, 0.05);
 
   --vp-c-yellow: #ffc517;
   --vp-c-yellow-light: #fcd253;
@@ -455,4 +455,8 @@ table tbody tr:last-child td {
 
 .VPNav .VPNavBarTitle {
   border-bottom: none !important;
+}
+
+.VPImage {
+  height: 35px !important;
 }

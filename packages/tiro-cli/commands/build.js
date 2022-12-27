@@ -1,5 +1,5 @@
 const { defineConfig, build } = require('vite')
-const vue = require('@vitejs/plugin-vue')
+const vueJsx = require('@vitejs/plugin-vue-jsx')
 const path = require('path')
 const fg = require('fast-glob')
 const fs = require('fs')
@@ -9,10 +9,17 @@ const outputDir = path.resolve(__dirname, '../../build/dist')
 const buildDir = path.resolve(__dirname, '../../build')
 const srcDir = path.resolve(__dirname, '../../tiro-ui/src')
 
+const version = '1.0.0'
+
+const typeFiles = {
+  es: 'es',
+  umd: 'lib'
+}
+
 const baseConfig = defineConfig({
   configFile: false,
   publicDir: false,
-  plugins: [vue()]
+  plugins: [vueJsx()]
 })
 
 const rollupOptions = {
@@ -56,34 +63,57 @@ const buildChunk = async () => {
 
   comps.map(async (item) => {
     const name = item.split('/')[0]
-    await build(
-      defineConfig({
-        ...baseConfig,
-        build: {
-          rollupOptions,
-          lib: {
-            entry: path.resolve(srcDir, item),
-            name,
-            fileName: name,
-            formats: ['es', 'umd']
-          },
-          outDir: path.resolve(__dirname, `../../build/components/${name}`)
-        }
-      })
-    )
+
+    ;['es', 'umd'].forEach(async (type) => {
+      await build(
+        defineConfig({
+          ...baseConfig,
+          build: {
+            rollupOptions,
+            lib: {
+              entry: path.resolve(srcDir, item),
+              name,
+              fileName: 'index',
+              formats: [type]
+            },
+            outDir: path.resolve(
+              __dirname,
+              `../../build/${typeFiles[type]}/${name}`
+            )
+          }
+        })
+      )
+    })
   })
 }
 
 const buildJson = async () => {
-  const comps = await getComps()
-
   const package = {
     name: 'tiro-ui',
+    version,
+    description: 'A simple Vue3-based desktop UI component library',
+    author: 'ZhengYuZi',
     type: 'module',
-    files: ['dist'],
+    license: 'MIT',
+    files: ['dist', 'lib', 'types'],
     main: './dist/tiro-ui.umd.js',
     module: './dist/tiro-ui.mjs',
     types: './types/index.d.ts',
+    keywords: [
+      'vue',
+      'vue3-components',
+      ' vue-typescript',
+      'component-library',
+      'ui'
+    ],
+    peerDependencies: {
+      vue: '^3.0.0'
+    },
+    homepage: '1.15.247.77',
+    repository: {
+      type: 'git',
+      url: 'https://github.com/ZhengYuZi/tiro-dev'
+    },
     exports: {
       '.': {
         import: './dist/tiro-ui.mjs',
@@ -92,17 +122,9 @@ const buildJson = async () => {
     }
   }
 
-  comps.map((item) => {
-    const name = item.split('/')[0]
-    package.exports[`./${name}`] = {
-      import: `./dist/components/${name}/${name}.mjs`,
-      require: `./dist/components/${name}/${name}.umd.js`
-    }
-  })
-
   fs.writeFile(
     path.resolve(buildDir, 'package.json'),
-    JSON.stringify(package, null, '\t'),
+    JSON.stringify(package, null, 2),
     function (err) {
       if (err) throw err
     }

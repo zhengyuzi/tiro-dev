@@ -5,14 +5,14 @@ export const Theme = {
   '--ti-color-transparent': 'transparent',
 
   // 主色
-  '--ti-color-default': 'rgb(121, 145, 209)', // 雪蓝
-  '--ti-color-default-light': 'rgba(121, 145, 209, 0.1)',
-  '--ti-color-default-light-1': 'rgba(121, 145, 209, 0.05)',
-  '--ti-color-default-light-2': 'rgba(121, 145, 209, 0.3)',
-  '--ti-color-default-light-3': 'rgba(121, 145, 209, 0.6)',
-  '--ti-color-default-dark-1': 'rgb(106, 131, 198)',
-  '--ti-color-default-dark-2': 'rgb(87, 111, 178)',
-  '--ti-color-default-dark-3': 'rgb(66, 91, 158)',
+  '--ti-color-default': 'rgb(37, 120, 181)', // 深竹月
+  '--ti-color-default-light': 'rgba(37, 120, 181, 0.1)',
+  '--ti-color-default-light-1': 'rgba(37, 120, 181, 0.05)',
+  '--ti-color-default-light-2': 'rgba(37, 120, 181, 0.3)',
+  '--ti-color-default-light-3': 'rgba(37, 120, 181, 0.6)',
+  '--ti-color-default-dark-1': 'rgb(29, 110, 170)',
+  '--ti-color-default-dark-2': 'rgb(21, 101, 160)',
+  '--ti-color-default-dark-3': 'rgb(14, 92, 150)',
 
   // gray
   '--ti-color-gray-50': '#fcfcfc',

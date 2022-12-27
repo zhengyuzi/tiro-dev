@@ -7,7 +7,7 @@
     "dts": "vue-tsc --declaration --emitDeclarationOnly --project tsconfig.json --outDir ../build/types"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@css-render/plugin-bem": "^0.15.11",
     "css-render": "^0.15.11"

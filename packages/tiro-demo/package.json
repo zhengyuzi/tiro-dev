@@ -15,6 +15,7 @@
     "unplugin-vue-components": "^0.22.7"
   },
   "dependencies": {
-    "@tiro/ui": "workspace:^1.0.0"
+    "@tiro/ui": "workspace:^1.0.0",
+    "@tiro/build": "workspace:^1.0.0"
   }
 }

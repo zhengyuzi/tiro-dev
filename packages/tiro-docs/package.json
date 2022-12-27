@@ -8,8 +8,8 @@
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "ZhengYuZi",
+  "license": "MIT",
   "dependencies": {
     "@tiro/ui": "workspace:^1.0.0",
     "markdown-it-container": "^3.0.0",

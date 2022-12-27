@@ -50,6 +50,9 @@ importers:
       vue-eslint-parser: 8.3.0_eslint@8.24.0
       vue-tsc: 1.0.8_typescript@4.8.3
 
+  packages/build:
+    specifiers: {}
+
   packages/tiro-cli:
     specifiers:
       fast-glob: ^3.2.12
@@ -58,10 +61,12 @@ importers:
 
   packages/tiro-demo:
     specifiers:
+      '@tiro/build': workspace:^1.0.0
       '@tiro/ui': workspace:^1.0.0
       unplugin-auto-import: ^0.11.2
       unplugin-vue-components: ^0.22.7
     dependencies:
+      '@tiro/build': link:../build
       '@tiro/ui': link:../tiro-ui
     devDependencies:
       unplugin-auto-import: 0.11.2

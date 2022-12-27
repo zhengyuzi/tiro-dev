@@ -3,10 +3,11 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import { containerPlugin, tablePlugin } from './app/plugins/md-it-plugins'
 
 export default defineConfig({
-  title: 'Tiro-UI',
-  head: [['link', { rel: 'icon', href: '/logo.svg' }]],
+  title: '  ',
+  titleTemplate: 'tiro-ui',
+  head: [['link', { rel: 'icon', href: '/logo.png' }]],
   themeConfig: {
-    logo: '/logo.svg',
+    logo: '/logo_name.png',
     algolia: {
       appId: '7IAU1WLYJ0',
       apiKey: 'b593f332d7e31267d72e4bb239f0eb06',

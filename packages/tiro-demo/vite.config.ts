@@ -8,12 +8,12 @@ import { TiroUIResolver } from './TiroUIResolver'
 export default defineConfig({
   plugins: [
     vue(),
-    vueJsx(),
-    AutoImport({
-      resolvers: [TiroUIResolver()]
-    }),
-    Components({
-      resolvers: [TiroUIResolver()]
-    })
+    vueJsx()
+    // AutoImport({
+    //   resolvers: [TiroUIResolver()]
+    // }),
+    // Components({
+    //   resolvers: [TiroUIResolver()]
+    // })
   ]
 })

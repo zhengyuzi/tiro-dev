@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "paths": {
+      "tiro-ui": ["./src"]
+    },
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
