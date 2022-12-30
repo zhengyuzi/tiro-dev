@@ -28,6 +28,7 @@ export const renderContainer = () => {
 
 export const renderMessage = (container: Element, vnode: VNode) => {
   const fragment = document.createElement('div')
+  fragment.className = 'ti-message-item'
   render(vnode, fragment)
   container.appendChild(fragment)
   return fragment

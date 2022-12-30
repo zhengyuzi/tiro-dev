@@ -3,6 +3,7 @@ import {
   onMounted,
   onUnmounted,
   PropType,
+  Ref,
   ref,
   Transition,
   VNode
@@ -35,18 +36,19 @@ const props = {
 const Message = defineComponent({
   props,
   setup(props) {
-    const isShow = ref(false)
+    const visible = ref(false)
     const timer = ref<null | number>(null)
+    const MessageRef: Ref<null | HTMLElement> = ref(null)
 
     onMounted(() => {
-      isShow.value = true
+      visible.value = true
       timer.value = setTimeout(() => {
-        isShow.value = false
+        visible.value = false
       }, props.duration)
     })
 
     const handleClick = () => {
-      isShow.value = false
+      visible.value = false
       clearTimeout(timer.value as number)
     }
 
@@ -159,12 +161,13 @@ const Message = defineComponent({
 
     return () => (
       <Transition name="message-fade">
-        {isShow.value ? (
+        {visible.value ? (
           <div
             class={[
               'ti-message',
               props.type ? `ti-message__${props.type}` : ''
             ]}
+            ref={MessageRef}
           >
             {props.icon
               ? props.icon()

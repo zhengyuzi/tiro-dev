@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TiMessage, TiIcon, TiButton } from '@tiro/build'
+import { TiMessage, TiIcon, TiButton } from '@tiro/ui'
 import { h, ref } from 'vue'
 
 const handleClick = () => {
@@ -31,8 +31,6 @@ const handleClick4 = () => {
     clearable: true
   })
 }
-
-const value = ref('')
 </script>
 
 <template>
