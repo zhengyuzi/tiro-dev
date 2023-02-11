@@ -39,7 +39,6 @@ const codeShow = () => {
     border-radius: 2px;
     .example-show {
       padding: 30px;
-      overflow-x: auto;
     }
   }
   .example-handle {

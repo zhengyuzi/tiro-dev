@@ -1,7 +1,11 @@
 import { c, cB, cE, cM } from '../../_minxin/cssr'
 import { Theme } from '../../../theme-chalk/index'
+import Dark from './dark.cssr'
+import Light from './light.cssr'
 
 export default c([
+  Dark,
+  Light,
   cB(
     'message-container',
     {
@@ -12,6 +16,7 @@ export default c([
       alignItems: 'center',
       width: '100%',
       height: 0,
+      left: 0,
       top: '20px'
     },
     [
@@ -29,7 +34,6 @@ export default c([
               boxSizing: 'border-box',
               borderRadius: Theme['--ti-border-radius'],
               fontSize: '14px',
-              backgroundColor: '#fff',
               display: 'flex',
               alignItems: 'center',
               transition: 'opacity 0.3s, transform 0.3s',
@@ -45,20 +49,11 @@ export default c([
               cE('inner', {
                 flex: 1
               }),
-              c(
-                '.clearable',
-                {
-                  cursor: 'pointer',
-                  padding: '2px',
-                  color: Theme['--ti-color-gray-600'],
-                  borderRadius: Theme['--ti-border-radius']
-                },
-                [
-                  c('&:hover', {
-                    backgroundColor: Theme['--ti-color-gray-200']
-                  })
-                ]
-              )
+              c('.clearable', {
+                cursor: 'pointer',
+                padding: '2px',
+                borderRadius: Theme['--ti-border-radius']
+              })
             ]
           )
         ]

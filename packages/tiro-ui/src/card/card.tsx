@@ -1,6 +1,6 @@
-import { defineComponent, onMounted, PropType } from 'vue'
+import { defineComponent, inject, onMounted, PropType } from 'vue'
 import { ExtractPublicPropTypes } from '../_utils'
-import style from './style/index.cssr'
+import style, { theme } from './style/index.cssr'
 
 type CardShadow = 'always' | 'hover'
 
@@ -19,11 +19,16 @@ export type CardProps = ExtractPublicPropTypes<typeof props>
 const Card = defineComponent({
   props,
   setup(props, { slots }) {
+    const Theme = inject('theme', {
+      value: 'light'
+    })
+
     onMounted(() => {
       style.mount({
         id: 'ti-card'
       })
     })
+
     return () => (
       <div
         class={[
@@ -31,6 +36,7 @@ const Card = defineComponent({
           props.bordered ? 'ti-card__bordered' : '',
           props.shadow ? `is-${props.shadow}` : ''
         ]}
+        style={Theme?.value && theme[Theme.value]}
       >
         {slots.header && (
           <div class="ti-card__header" style={props.headerStyle}>

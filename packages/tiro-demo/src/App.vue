@@ -1,6 +1,14 @@
 <script setup lang="ts">
-import { TiMessage, TiIcon, TiButton } from '@tiro/ui'
-import { h, ref } from 'vue'
+import {
+  TiMessage,
+  TiIcon,
+  TiButton,
+  TiConfigProvider,
+  TiCard,
+  TiCheckbox,
+  TiCheckboxGroup
+} from '@tiro/ui'
+import { h, Ref, ref } from 'vue'
 
 const handleClick = () => {
   TiMessage({
@@ -31,20 +39,46 @@ const handleClick4 = () => {
     clearable: true
   })
 }
+
+const Theme: Ref<'light' | 'dark'> = ref('light')
+
+const handleClick5 = () => {
+  Theme.value = Theme.value === 'light' ? 'dark' : 'light'
+}
+
+const demo1 = ref(['BeiJing', 'GuangZhou'])
 </script>
 
 <template>
-  <div class="example">
-    <ti-button @click="handleClick">click</ti-button>
-    <ti-button @click="handleClick2">click</ti-button>
-    <ti-button @click="handleClick3">click</ti-button>
-    <ti-button @click="handleClick4">click</ti-button>
-  </div>
+  <ti-config-provider :theme="Theme">
+    <ti-card style="width: 500px">
+      <div class="example">
+        <ti-button @click="handleClick">click</ti-button>
+        <ti-button @click="handleClick2">click</ti-button>
+        <ti-button @click="handleClick3">click</ti-button>
+        <ti-button @click="handleClick4">click</ti-button>
+        <ti-button fill @click="handleClick5">黑暗模式</ti-button>
+      </div>
+    </ti-card>
+  </ti-config-provider>
 </template>
 
 <style>
 body {
   margin: 0;
   padding: 0;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+}
+
+.ti-card {
+  margin-top: 20vh;
+}
+
+.example > * {
+  margin-right: 10px;
 }
 </style>

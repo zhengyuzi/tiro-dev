@@ -114,17 +114,17 @@ const demo1 = ref(['BeiJing', 'GuangZhou'])
 
 ``` vue
 <template>
-  <ti-checkbox-group v-model="demo1" name="demo-group" type="bright">
+  <ti-checkbox-group v-model="demo" name="demo-group" type="bright">
     <ti-checkbox value="BeiJing" label="BeiJing" />
     <ti-checkbox value="ShangHai" label="ShangHai" />
     <ti-checkbox value="GuangZhou" label="GuangZhou" />
   </ti-checkbox-group>
-    <ti-checkbox-group v-model="demo1" name="demo-group1" type="success">
+    <ti-checkbox-group v-model="demo" name="demo-group1" type="success">
     <ti-checkbox value="BeiJing" label="BeiJing" />
     <ti-checkbox value="ShangHai" label="ShangHai" />
     <ti-checkbox value="GuangZhou" label="GuangZhou" />
   </ti-checkbox-group>
-    <ti-checkbox-group v-model="demo1" name="demo-group2" disabled>
+    <ti-checkbox-group v-model="demo" name="demo-group2" disabled>
     <ti-checkbox value="BeiJing" label="BeiJing" />
     <ti-checkbox value="ShangHai" label="ShangHai" />
     <ti-checkbox value="GuangZhou" label="GuangZhou" />
@@ -133,7 +133,7 @@ const demo1 = ref(['BeiJing', 'GuangZhou'])
 
 <script setup lang="ts">
 import { ref } from 'vue'
-const isChecked = ref(['BeiJing', 'GuangZhou'])
+const demo = ref(['BeiJing', 'GuangZhou'])
 </script>
 ```
 :::

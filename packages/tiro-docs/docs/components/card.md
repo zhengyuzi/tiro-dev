@@ -65,7 +65,7 @@
 ::: show
 <ti-card
   style="width: 350px"
-  header-style="padding: 15px 30px; background-color: #eee;"
+  header-style="padding: 15px 30px; background-color: rgb(37, 120, 181); color: #fff;"
   body-style="padding: 30px;"
 >
   <template #header>
@@ -81,7 +81,7 @@
 <template>
   <ti-card 
     style="width: 350px" 
-    header-style="padding: 15px 30px; background-color: #eee;"
+    header-style="padding: 15px 30px; background-color: rgb(37, 120, 181); color: #fff;"
     body-style="padding: 30px;"
   >
     <template #header>

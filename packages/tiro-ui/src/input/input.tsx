@@ -1,7 +1,7 @@
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent, inject, onMounted, ref } from 'vue'
 import type { PropType, Component, VNode, Ref } from 'vue'
 import { ExtractPublicPropTypes } from '../_utils'
-import style from './style/index.cssr'
+import style, { theme } from './style/index.cssr'
 import { TiIcon } from '../icon'
 
 const props = {
@@ -68,6 +68,10 @@ export type InputProps = ExtractPublicPropTypes<typeof props>
 const Button = defineComponent({
   props,
   setup(props, { emit, expose }) {
+    const Theme = inject('theme', {
+      value: 'light'
+    })
+
     onMounted(() => {
       style.mount({
         id: 'ti-input'
@@ -157,6 +161,7 @@ const Button = defineComponent({
           isFocus.value ? 'is-focus' : null,
           `is-${size}`
         ]}
+        style={Theme?.value && theme[Theme.value]}
       >
         <div class={['ti-input__wrapper', `is-style-type-${styleType}`]}>
           <div class="ti-input__prefix" onMousedown={handleFix}>

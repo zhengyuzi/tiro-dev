@@ -1,49 +1,78 @@
 import { c, cB, cE, cM } from '../../_minxin/cssr'
-import { Theme, ThemeType, ThemeSize } from '../../../theme-chalk/index'
+import {
+  Theme,
+  ThemeType,
+  ThemeSize,
+  DarkTheme
+} from '../../../theme-chalk/index'
 
-const Height = {
-  small: '30px',
-  medium: '35px',
-  large: '40px'
+const Default = {
+  '--ti-color-transparent': Theme['--ti-color-transparent'],
+  '--ti-height-small': '30px',
+  '--ti-height-medium': '35px',
+  '--ti-height-large': '40px',
+  '--ti-text-small': '13px',
+  '--ti-text-medium': Theme['--ti-text-sm'],
+  '--ti-text-large': '15px',
+  '--ti-icon-small': '16px',
+  '--ti-icon-medium': '18px',
+  '--ti-icon-large': '20px',
+  '--ti-color-default': Theme['--ti-color-default'],
+  '--ti-color-default-light': Theme['--ti-color-default-light-1'],
+  '--ti-color-success': Theme['--ti-color-success'],
+  '--ti-color-success-light': Theme['--ti-color-success-light-1'],
+  '--ti-color-info': Theme['--ti-color-info'],
+  '--ti-color-info-light': Theme['--ti-color-info-light-1'],
+  '--ti-color-danger': Theme['--ti-color-danger'],
+  '--ti-color-danger-light': Theme['--ti-color-danger-light-1'],
+  '--ti-color-warning': Theme['--ti-color-warning'],
+  '--ti-color-warning-light': Theme['--ti-color-warning-light-1'],
+  '--ti-color-bright': Theme['--ti-color-bright'],
+  '--ti-color-bright-light': Theme['--ti-color-bright-light-1']
 }
 
-const FontSize = {
-  small: '13px',
-  medium: '14px',
-  large: '15px'
+const Light = {
+  ...Default,
+  '--ti-text-color': Theme['--ti-color-black'],
+  '--ti-border-color': Theme['--ti-color-gray-300'],
+  '--ti-border-hover-color': Theme['--ti-color-gray-400'],
+  '--ti-bg-disabled-color': Theme['--ti-color-gray-100']
 }
 
-const IconSize = {
-  small: '16px',
-  medium: '18px',
-  large: '20px'
+const Dark = {
+  ...Default,
+  '--ti-text-color': Theme['--ti-color-gray-100'],
+  '--ti-border-color': DarkTheme['--ti-color-dark-300'],
+  '--ti-border-hover-color': DarkTheme['--ti-color-dark-100'],
+  '--ti-bg-disabled-color': DarkTheme['--ti-color-dark-500']
+}
+
+export const theme = {
+  light: Light,
+  dark: Dark
 }
 
 const renderType = ThemeType.map((type) => {
-  const color = `--ti-color-${type}`
-  const BkColor = `--ti-color-${type}-light-1`
   return c(`&.is-style-type-${type}`, {
-    backgroundColor: Theme[BkColor],
-    borderColor: Theme[color]
+    backgroundColor: `var(--ti-color-${type}-light)`,
+    borderColor: `var(--ti-color-${type})`
   })
 })
 
 const renderSize = ThemeSize.map((size) => {
-  const height = Height[size]
-  const fontSize = FontSize[size]
   return c(
     `&.is-${size}`,
     {
-      height
+      height: `var(--ti-height-${size})`
     },
     [
       c('.password, .clearable ', {
-        fontSize: IconSize[size],
+        fontSize: `var(--ti-icon-${size})`,
         color: Theme['--ti-color-gray-400'],
         cursor: 'pointer'
       }),
       cB('input__inner', {
-        fontSize
+        fontSize: `var(--ti-text-${size})`
       })
     ]
   )
@@ -52,7 +81,7 @@ const renderSize = ThemeSize.map((size) => {
 const handlePlaceHolder = [':-webkit-input', '-moz', ':-moz', '-ms-input'].map(
   (item) => {
     return c(`&:${item}-placeholder`, {
-      color: Theme['--ti-color-gray-300'],
+      color: 'var(--ti-border-color)',
       userSelect: 'none',
       fontSize: 'inherit'
     })
@@ -67,7 +96,7 @@ export default cB(
   },
   [
     c('&:not(.is-disabled):not(.is-focus):hover &__wrapper', {
-      borderColor: Theme['--ti-color-gray-300']
+      borderColor: 'var(--ti-border-hover-color)'
     }),
     c('&.is-focus', [
       cB(
@@ -83,10 +112,10 @@ export default cB(
       {
         width: '100%',
         height: '100%',
-        color: Theme['--ti-color-black'],
+        color: 'var(--ti-text-color)',
         borderWidth: '1px',
         borderStyle: 'solid',
-        borderColor: Theme['--ti-color-gray-200'],
+        borderColor: 'var(--ti-border-color)',
         borderRadius: Theme['--ti-border-radius'],
         position: 'relative',
         display: 'flex',
@@ -103,7 +132,7 @@ export default cB(
             border: 'none',
             padding: '0 10px',
             fontSize: 'inherit',
-            backgroundColor: Theme['--ti-color-transparent'],
+            backgroundColor: 'var(--ti-color-transparent)',
             flex: 1
           },
           handlePlaceHolder
@@ -111,17 +140,14 @@ export default cB(
       ]
     ),
     renderSize,
-    c(
-      '&.is-disabled',
-      {
-        backgroundColor: Theme['--ti-color-gray-100']
-      },
-      [
-        c('*', {
-          cursor: 'not-allowed'
-        })
-      ]
-    ),
+    c('&.is-disabled', [
+      cB('input__wrapper', {
+        backgroundColor: 'var(--ti-bg-disabled-color)'
+      }),
+      c('*', {
+        cursor: 'not-allowed'
+      })
+    ]),
     c('&__prefix', [
       c('& > *', {
         display: 'inline-flex',

@@ -94,5 +94,12 @@ export const Theme = {
   // border-radius
   '--ti-border-radius': '3px',
   '--ti-border-radius-middle': '20px',
-  '--ti-border-radius-circle': '50%'
+  '--ti-border-radius-circle': '50%',
+
+  // font-size
+  '--ti-text-xl': '20px',
+  '--ti-text-lg': '18px',
+  '--ti-text': '16px',
+  '--ti-text-sm': '14px',
+  '--ti-text-xs': '12px'
 }

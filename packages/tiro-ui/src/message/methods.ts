@@ -12,18 +12,22 @@ export const containerClassName = 'ti-message-container'
 
 let isContainer: HTMLElement | null = null
 
-export const createContainer = () => {
-  style.mount({ id: 'ti-message' })
+const isConfigProvider = () => {
+  const ConfigProvider = document.querySelector('#ti-config-provider')
+  return ConfigProvider
+}
+
+export const createContainer = (Provider: Element) => {
   const container = document.createElement('div')
   container.className = `${containerClassName}`
-  document.body.appendChild(container)
+  Provider.appendChild(container)
   isContainer = container
   return container
 }
 
-export const renderContainer = () => {
+export const renderContainer = (Provider: Element) => {
   if (isContainer) return isContainer
-  return createContainer()
+  return createContainer(Provider)
 }
 
 export const renderMessage = (container: Element, vnode: VNode) => {
@@ -35,6 +39,7 @@ export const renderMessage = (container: Element, vnode: VNode) => {
 }
 
 export const seTTiming = (
+  Provider: Element,
   container: Element,
   fragment: HTMLElement,
   duration: number
@@ -42,7 +47,7 @@ export const seTTiming = (
   const timer = setTimeout(() => {
     container.removeChild(fragment)
     if (!container.childNodes.length) {
-      container && document.body.removeChild(container)
+      container && Provider.removeChild(container)
       isContainer = null
       style.unmount()
     }
@@ -51,7 +56,10 @@ export const seTTiming = (
 }
 
 export const renderer = ({ vnode, duration = 3000 }: IMessageRender) => {
-  const Container = renderContainer()
+  const ConfigProvider = isConfigProvider()
+  const Provider = ConfigProvider || document.body
+  style.mount({ id: 'ti-message' })
+  const Container = renderContainer(Provider)
   const Message = renderMessage(Container, vnode)
-  seTTiming(Container, Message, duration + 300)
+  seTTiming(Provider, Container, Message, duration + 300)
 }

@@ -1,7 +1,7 @@
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent, inject, onMounted } from 'vue'
 import type { PropType } from 'vue'
 import { ExtractPublicPropTypes, ComponentType, ComponentSize } from '../_utils'
-import style from './style/index.cssr'
+import style, { theme } from './style/index.cssr'
 
 const props = {
   size: {
@@ -47,8 +47,9 @@ export type ButtonProps = ExtractPublicPropTypes<typeof props>
 const Button = defineComponent({
   props,
   setup(props, { slots }) {
-    const { disabled, size, type, dashed, fill, text, circle, plain, round } =
-      props
+    const Theme = inject('theme', {
+      value: 'light'
+    })
 
     onMounted(() => {
       style.mount({
@@ -58,19 +59,20 @@ const Button = defineComponent({
 
     return () => (
       <button
-        disabled={disabled}
+        disabled={props.disabled}
         class={[
           'ti-button',
-          `is-${size || 'medium'}`,
-          `is-${type || 'default'}`,
-          !dashed || 'is-dashed',
-          !fill || 'is-fill',
-          !text || 'is-text',
-          !disabled || 'is-disabled',
-          !circle || 'is-circle',
-          !plain || 'is-plain',
-          !round || 'is-round'
+          `is-${props.size || 'medium'}`,
+          `is-${props.type || 'default'}`,
+          !props.dashed || 'is-dashed',
+          !props.fill || 'is-fill',
+          !props.text || 'is-text',
+          !props.disabled || 'is-disabled',
+          !props.circle || 'is-circle',
+          !props.plain || 'is-plain',
+          !props.round || 'is-round'
         ]}
+        style={Theme?.value && theme[Theme.value]}
       >
         {slots.default && slots.default()}
       </button>

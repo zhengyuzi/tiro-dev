@@ -1,6 +1,6 @@
 import { defineComponent, inject, onMounted, PropType } from 'vue'
 import { ComponentSize, ComponentType, ExtractPublicPropTypes } from '../_utils'
-import style from './style/index.cssr'
+import style, { theme } from './style/index.cssr'
 
 const props = {
   name: {
@@ -32,6 +32,10 @@ export type TCheckboxInject = {
 const Checkbox = defineComponent({
   props,
   setup(props) {
+    const Theme = inject('theme', {
+      value: 'light'
+    })
+
     onMounted(() => {
       style.mount({
         id: 'ti-checkbox'
@@ -61,6 +65,7 @@ const Checkbox = defineComponent({
           `is-${props.size || CheckboxInject.size}`,
           props.disabled || CheckboxInject.disabled ? 'is-disabled' : ''
         ]}
+        style={Theme?.value && theme[Theme.value]}
       >
         <input
           type="checkbox"

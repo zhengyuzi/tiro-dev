@@ -1,8 +1,8 @@
-import { defineComponent, onMounted, ref, Transition } from 'vue'
+import { defineComponent, inject, onMounted, ref, Transition } from 'vue'
 import type { PropType, Ref } from 'vue'
 import { ExtractPublicPropTypes, ComponentType, ComponentSize } from '../_utils'
 import TiIcon from '../icon'
-import style from './style/index.cssr'
+import style, { theme } from './style/index.cssr'
 
 export interface SelectOption {
   label: string
@@ -56,6 +56,10 @@ const Select = defineComponent({
     const Menu = ref(null) as unknown as Ref<HTMLInputElement>
     const currentIndexs: Ref<number[]> = ref([])
     const currentScroll = ref(0)
+
+    const Theme = inject('theme', {
+      value: 'light'
+    })
 
     onMounted(() => {
       style.mount({
@@ -162,6 +166,7 @@ const Select = defineComponent({
           props.disabled ? 'is-disabled' : '',
           isFocus.value ? 'is-focus' : ''
         ]}
+        style={Theme?.value && theme[Theme.value]}
       >
         <div class="ti-select__inner" onMousedown={change}>
           {props.multiple && (

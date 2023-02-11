@@ -1,0 +1,35 @@
+{
+  "hash": "f076442b",
+  "browserHash": "2399333a",
+  "optimized": {
+    "vue": {
+      "src": "../../../../../../node_modules/.pnpm/vue@3.2.39/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "d131e487",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "src": "../../../../../../node_modules/.pnpm/@vueuse+core@9.3.1/node_modules/@vueuse/core/index.mjs",
+      "file": "@vueuse_core.js",
+      "fileHash": "9e13ed7f",
+      "needsInterop": false
+    },
+    "css-render": {
+      "src": "../../../../../../node_modules/.pnpm/css-render@0.15.11/node_modules/css-render/esm/index.js",
+      "file": "css-render.js",
+      "fileHash": "5848d652",
+      "needsInterop": false
+    },
+    "@css-render/plugin-bem": {
+      "src": "../../../../../../node_modules/.pnpm/@css-render+plugin-bem@0.15.11_css-render@0.15.11/node_modules/@css-render/plugin-bem/esm/index.js",
+      "file": "@css-render_plugin-bem.js",
+      "fileHash": "6d321ca5",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-KWBXOYXL": {
+      "file": "chunk-KWBXOYXL.js"
+    }
+  }
+}
